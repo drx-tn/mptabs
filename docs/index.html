@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tableaux des maladies professionnelles en Tunisie</title>
+    <link rel="icon" href="../mptabs.svg" sizes="any" type="image/svg+xml" />
+    <link rel="stylesheet" href="uikit/dist/css/uikit.min.css" />
+  </head>
+  <body>
+    <div id="filter" uk-offcanvas="mode: push">
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul uk-accordion>
+          <li>
+            <a class="uk-accordion-title" href="#">Cardiologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab3,#tab23"
+                    >Trouble du rythme cardiaque</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab23"
+                    >Insuffisance circulatoire, collapsus cardio-vasculaire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab13,#tab14,#tab17,#tab55"
+                    >Insuffisance cardiaque droite, IVD</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab30"
+                    >Précordialgies, Angor, IDM</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab43,#tab81"
+                    >Troubles angioneurotiques</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab61"
+                    >Troubles de la conduction</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab61">Péricardite</a>
+                  <a class="mptabs" data-mptabs="#tab65,#tab69,#tab75"
+                    >Endocardite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab81">Atteinte vasculaire</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="uk-accordion-title">Carcinologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab3"
+                    >Dyskératose lenticulaire (Maladie de Bowen)</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab37,#tab38,#tab39,#tab76,#tab77"
+                    >Epithélioma primitif de la peau, cancers cutanés</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab6,#tab7,#tab11,#tab14,#tab17,#tab18,#tab37,#tab76"
+                    >Cancer broncho-pulmonaire primitif</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab43,#tab76"
+                    >Angiosarcome, ostéosarcome</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab6,#tab54"
+                    >Cancer de l’éthmoïde et des sinus de la face</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab7,#tab28"
+                    >Cancer des cavités nasales, Cancer du nasopharynx</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab18"
+                    >Mésotheliome de la plèvre, péricarde, péritoine</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab18,#tab85"
+                    >Cancer du Larynx</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab31"
+                    >Syndrome myéloprolifratif</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab31,#tab76">Leucémie</a>
+                  <a class="mptabs" data-mptabs="#tab33,#tab37"
+                    >Tumeurs bénignes ou malignes de la vessie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab70"
+                    >Carcinome Hepato Cellulaire</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="uk-accordion-title">Dermatologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab2,#tab4,#tab5,#tab6,#tab7,#tab19,#tab25,#tab28,#tab29,#tab37,#tab39,#tab40,#tab41,#tab42,#tab44,#tab44bis,#tab45,#tab46,#tab47,#tab48,#tab51,#tab54,#tab56,#tab59"
+                    >Dermites eczématiformes</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3">Mélanodermie</a>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab5,#tab16,#tab19,#tab23,#tab33,#tab36,#tab39,#tab49"
+                    >Dermatite irritative</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab7,#tab12"
+                    >Plaie arsenicale (lésion vésiculo-bulleuse ou ulcéreuse),
+                    ulcération</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab77"
+                    >Dyskératose palmo-plantaire, Kératose</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab9,#tab10,#tab21,Tab22,#tab23,#tab35,#tab61"
+                    >Dermites aigues ou chroniques ou récidivantes</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab10">Brûlures chimiques</a>
+                  <a class="mptabs" data-mptabs="#tab17"
+                    >Sclérodermie systémique (Sd Erasmus)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab19">Pyodermites</a>
+                  <a class="mptabs" data-mptabs="#tab32"
+                    >Porphyrie cutanée tardive</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab32">Acné</a>
+                  <a class="mptabs" data-mptabs="#tab33,#tab34,#tab49"
+                    >Eczéma de contact allergique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab37"
+                    >Dermites photo-toxiques</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab39,#tab62,#tab72"
+                    ><ul>
+                      <li>Papules, pustules</li>
+                      <li>Granulome cutané</li>
+                    </ul></a
+                  >
+                  <a class="mptabs" data-mptabs="#tab40"
+                    >Dermo-épidermite irritative</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab44bis,#tab56,#tab72"
+                    >Urticaire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab63">Tuberculose cutanée</a>
+                  <a class="mptabs" data-mptabs="#tab69"
+                    >Lésions cutanées associées à des arthrites</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab69,#tab75"
+                    >Erysipèle, placard érysipèloïde</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab74"
+                    >Mycoses, onychomycoses, périonyxis et onyxis</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab75">Gonococcie cutanée</a>
+                  <a class="mptabs" data-mptabs="#tab76"
+                    >Radiodermite aigue ou chronique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab76"
+                    >Radio-épithélite des muqueuses</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Gastro-Entérologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab1,#tab2,#tab3,#tab11,#tab23,#tab26,#tab31,#tab36,#tab45, #tab69,#tab72,#tab75"
+                    >Manifestations digestives (douleurs abdominales,
+                    vomissements, diarrhée, hyper salivation, nausées)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3"
+                    >Syndrome de cytolyse hépatique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab21,#tab22,#tab23"
+                    >Hépato-néphrite, Ictère, Hépatite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab43"
+                    >Syndrome d’hypertension portale (HTP)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab65,#tab70"
+                    >Hépatite infectieuse, granulomateuse</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab70"
+                    >Carcinome hépato-cellulaire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab70">Cirrhose</a>
+                  <a class="mptabs" data-mptabs="#tab75"
+                    >Amibiase hépato-intestinale</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Hématologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab1,#tab23,#tab31,#tab34,#tab73,#tab76"
+                    >Anémie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab33"
+                    >Hémolyse, méthémoglobinémie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab76"
+                    >Troubles de l’hémostase, Syndrome hémorragique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab31">Leuconeutropénie</a>
+                  <a class="mptabs" data-mptabs="#tab31"
+                    >Hypercytoses d’origine myélodysplasique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab31,#tab76">Leucopénie</a>
+                  <a class="mptabs" data-mptabs="#tab31,#tab76">Thrombopénie</a>
+                  <a class="mptabs" data-mptabs="#tab36">Neutropénie franche</a>
+                  <a class="mptabs" data-mptabs="#tab72">Hyper éosinophilie</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Maladies Infectieuses</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab17,#tab63"
+                    >Infection aux bacilles tuberculeux, tuberculose
+                    extra-thoracique, TBC ou autre mycobactériose, aspergillose,
+                    suppuration broncho-pulmonaire subaigüe ou chronique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab60">Brucellose</a>
+                  <a class="mptabs" data-mptabs="#tab61"
+                    >Leptospirose, Spirochétose à tique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab62"
+                    >Infection par le bacille du charbon</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab63"
+                    >Tuberculose ganglionnaire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab64"
+                    >Tétanos professionnel</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab65"
+                    >Infections due aux rickettsies ; rickettsiose aigue, fièvre
+                    Q</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab66">Tularémie</a>
+                  <a class="mptabs" data-mptabs="#tab67"
+                    >Ornithose-Psittacose</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab68">Pasteurellose</a>
+                  <a class="mptabs" data-mptabs="#tab69">Rouget du porc</a>
+                  <a class="mptabs" data-mptabs="#tab70">Hépatites virales</a>
+                  <a class="mptabs" data-mptabs="#tab71">Rage</a>
+                  <a class="mptabs" data-mptabs="#tab72">Anguillulose</a>
+                  <a class="mptabs" data-mptabs="#tab73">Ankylostomose</a>
+                  <a class="mptabs" data-mptabs="#tab74"
+                    >Mycoses cutanées, périonyxis et onyxis</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab75"
+                    >Infections hospitalières : Staph, Pseudomonas,
+                    entérobactéries, Shigella, Pneumocoques, Streptocoques,
+                    Meningocoques, gonocoques, VIH, Fièvre typhoïde et
+                    paratyphoïde, Choléra, Syphilis, Amibiase</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a class="uk-accordion-title">Néphrologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab1">Insuffisance Rénale</a>
+                  <a class="mptabs" data-mptabs="#tab2,#tab3"
+                    >Néphrite azotémique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab33"
+                    >Hémoglobinurie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab11"
+                    >Néphropathie avec protéinurie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab21">Hépatonéphrite</a>
+                  <a class="mptabs" data-mptabs="#tab75"
+                    >Glomérulonéphrite Aigue</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab83">Oligurie</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">O.R.L</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab3,#tab7,#tab12"
+                    >Perforation de la cloison nasale, Ulcération nasale</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab4,#tab6,#tab7,#tab11,#tab13,Tab28,Tab29,#tab33,#tab34,#tab41,#tab42,#tab43,#tab44,#tab44bis,#tab47,#tab49,#tab52,#tab53,#tab54,#tab56,#tab57,#tab58"
+                    >Rhinite</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab8,#tab10,#tab11,#tab16,#tab36"
+                    >Irritation des voies aériennes supérieures</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab11">Anosmie</a>
+                  <a class="mptabs" data-mptabs="#tab20,#tab24,#tab78"
+                    >Vertiges et troubles labyrinthiques</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab23">Névrite trigéminale</a>
+                  <a class="mptabs" data-mptabs="#tab24">hyperacousie</a>
+                  <a class="mptabs" data-mptabs="#tab42">Pharyngite</a>
+                  <a class="mptabs" data-mptabs="#tab75,#tab78,#tab79">Otite</a>
+                  <a class="mptabs" data-mptabs="#tab78,#tab80"
+                    >Hypoacousie, déficit audiométrique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab79"
+                    >Lésions de l’oreille interne</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Ophtalmologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab9,#tab10,#tab16,#tab19,Tab23,#tab29,#tab36,#tab42,#tab44,#tab44bis,#tab48, #tab49,#tab75,#tab77"
+                    >Conjonctivite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab19,#tab42,#tab76"
+                    >Blépharite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab3,#tab75,#tab76,#tab77"
+                    >Kératite</a
+                  >
+                  <a class="mptabs" data-mptabs="Tab20,#tab24"
+                    >Amblyopie, amaurose, diplopie</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab23,#tab26"
+                    >Névrite optique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab37"
+                    >Conjonctivite photo-toxique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab45">Myosis</a>
+                  <a class="mptabs" data-mptabs="#tab76,#tab77">Cataracte</a>
+                  <a class="mptabs" data-mptabs="#tab77">Ptérygion</a>
+                  <a class="mptabs" data-mptabs="#tab77">Photo-traumatisme</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Pneumologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab3">Dyspnée aigue</a>
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab4,#tab6,#tab7,#tab25,#tab28,#tab29,#tab33,#tab34,#tab41,#tab42,#tab43,#tab44bis,#tab47,#tab52,#tab53,#tab54,#tab56,#tab57,#tab58"
+                    >Asthme</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab4,#tab6,#tab7,#tab13,#tab33,#tab34,#tab42,#tab43,#tab45,#tab47,#tab52,#tab53,#tab54,#tab56,#tab57,#tab58,#tab72"
+                    >Dyspnée asthmatiforme</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab4,#tab43,#tab52,#tab53,#tab56,#tab57,#tab58"
+                    >Insuffisance respiratoire obstructive</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab8,#tab9,#tab10,#tab11,#tab14,#tab15"
+                    >Pneumopathie aigue, Sidérose, Stibiose,
+                    Bronchopneumopathie</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab8,#tab10,#tab16,#tab23,#tab45"
+                    >Œdème bronchoalvéolaire, Œdème pulmonaire aigu</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab8,#tab13"
+                    >Irritation des voies respiratoires, syndrome irritatif
+                    respiratoire</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab9,#tab13,#tab17,#tab18,#tab54,#tab55,#tab56,#tab57,#tab58"
+                    >Fibrose pulmonaire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab13,#tab17,#tab63"
+                    >Infection pulmonaire TBC ou autre mycobactériose,
+                    aspergillose, suppuration broncho-pulmonaire subaigüe ou
+                    chronique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab17"
+                    >Pneumothorax, nécrose cavitaire aseptique</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab17,#tab39,#tab54,#tab55,#tab56,#tab57,#tab58"
+                    >Insuffisance respiratoire</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab18">Pleurésie</a>
+                  <a class="mptabs" data-mptabs="#tab18"
+                    >Epaississement pleuraux, plaques pleurales</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab18,#tab44"
+                    >Manifestations respiratoires chroniques</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab42,#tab49"
+                    >Alvéolite allergique extrinsèque (AAE)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab67,#tab75"
+                    >Pneumonie, bronchopneumonie</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Psychiatrie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab24">Anxiété</a>
+                  <a class="mptabs" data-mptabs="#tab24,#tab26"
+                    >Dépression nerveuse, état dépressif</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab26">Délire</a>
+                  <a class="mptabs" data-mptabs="#tab26">Confusion mentale</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title"
+              >Rhumatologie et Maladies ostéo-articulaires</a
+            >
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab5,#tab11,">Ostéomalacie</a>
+                  <a class="mptabs" data-mptabs="#tab5,#tab76,#tab78,#tab81"
+                    >Nécrose osseuse</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab10"
+                    >Syndrome ostéo-ligamentaire (avec ostéocondensation
+                    diffuse)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab17"
+                    >Polyarthrite rhumatoïde (Sd Caplan-Colinet)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab43">Ostéolyse</a>
+                  <a class="mptabs" data-mptabs="#tab61">Oligoarthrites</a>
+                  <a class="mptabs" data-mptabs="#tab63"
+                    >Synovite tuberculeuse, ostéoarthrite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab81">Arthrose</a>
+                  <a class="mptabs" data-mptabs="#tab82">Tendinopathies</a>
+                  <a class="mptabs" data-mptabs="#tab82">Epichondylite</a>
+                  <a class="mptabs" data-mptabs="#tab82">Epitrochléïte</a>
+                  <a class="mptabs" data-mptabs="#tab82">Hygroma</a>
+                  <a class="mptabs" data-mptabs="#tab82"
+                    >Syndromes canalaires</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab82">Ténosynovite</a>
+                  <a class="mptabs" data-mptabs="#tab82"
+                    >Lésions chroniques du ménisque</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab83">Crampes musculaires</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Urologie et appareil uro-génital</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab76"
+                    >Atteinte des gonades</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Neurologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  Manifestations
+                  <a class="mptabs" data-mptabs="#tab1"
+                    >Neuropathies périphériques</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab1"
+                    >Syndrome de sclérose latérale amyotrophique (SLA)</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab1,#tab2,#tab3"
+                    >Encéphalopathies</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab1,#tab23,#tab40"
+                    >Altération des fonctions cognitives</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab2,#tab20,Tab24"
+                    >Ataxie, Ataxie cérébelleuse</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab2,#tab24"
+                    >Tremblement intentionnel</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab21,#tab22,#tab23,#tab24,#tab32"
+                    >Accidents nerveux aigus (myoclonies, crises épileptiforme,
+                    accès confusionnels)</a
+                  >
+                  <a
+                    class="mptabs"
+                    data-mptabs="#tab3,#tab22,#tab23,#tab26,#tab27"
+                    >Polynévrite ou névrite</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab8"
+                    >Syndrome Parkinsonien</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab20">Amnésie</a>
+                  <a class="mptabs" data-mptabs="#tab20,#tab23,#tab24,#tab33"
+                    >Troubles neurologiques à type de somnolence, narcose,
+                    coma</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab20,#tab24,#tab26,#tab45"
+                    >Troubles nerveux : céphalées, vertiges, confusion mentale
+                    avec myosis. Tremblement des extrémités, ROT vifs,
+                    paresthésies faciales et péribuccales, crises convulsives
+                    généralisées</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab23,#tab40"
+                    >Syndrome ébrieux ou narcotique</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab61"
+                    >Troubles neurologiques : douleurs radiculaires, troubles de
+                    la sensibilité, atteintes des nerfs périphériques et
+                    crâniens</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab61,#tab67">Méningite</a>
+                  <a class="mptabs" data-mptabs="#tab75"
+                    >Polymyélite antérieure aigue</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab81"
+                    >Troubles angioneurotiques</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <a class="uk-accordion-title">Toxicologie</a>
+            <div class="uk-accordion-content">
+              <ul uk-nav>
+                <li>
+                  <a class="mptabs" data-mptabs="#tab35"
+                    ><ul>
+                      <li>
+                        Manifestations consécutives à l’intoxication subaigüe ou
+                        chronique (cyanose, anémie, subictère)
+                      </li>
+                      <li>Accidents aigus (coma)</li>
+                      <li></li></ul
+                  ></a>
+                  <a class="mptabs" data-mptabs="#tab36"
+                    ><ul>
+                      <li>
+                        Intoxication suraigüe avec hyperthermie, œdème
+                        pulmonaire, éventuellement atteinte hépatique, rénale et
+                        myocardique
+                      </li>
+                      <li>
+                        Intoxication aiguë ou subaiguë avec asthénie,
+                        amaigrissement rapide, hypersudation suivie
+                        d’hyperthermie avec gêne respiratoire
+                      </li>
+                      <li>
+                        Manifestations digestives(douleurs abdominales,
+                        vomissements, diarrhée)
+                      </li>
+                    </ul></a
+                  >
+                  <a class="mptabs" data-mptabs="#tab44bis"
+                    >Réactions allergiques systémiques telles que : urticaire
+                    géante, oedème de Quincke, choc anaphylactique survenus à
+                    l’occasion d’une exposition au latex</a
+                  >
+                  <a class="mptabs" data-mptabs="#tab45"
+                    ><ul>
+                      <li>
+                        Troubles digestifs : crampes abdominales, hyper
+                        salivation, nausées ou vomissements diarrhée
+                      </li>
+                      <li>
+                        Troubles respiratoires : dyspnée asthmatiforme, œdème
+                        bronchoalvéolaire
+                      </li>
+                      <li>
+                        Troubles nerveux : céphalées, vertiges, confusion
+                        mentale accompagnée de myosis
+                      </li>
+                      <li>
+                        Troubles généraux et vasculaires : asthénie, bradycardie
+                        et hypotension, amblyopie
+                      </li>
+                      <li>
+                        Syndrome biologique caractérisé par un abaissement
+                        significatif de l’acétylcholinestérase des globules
+                        rouges
+                      </li>
+                    </ul></a
+                  >
+                  <a class="mptabs" data-mptabs="#tab84"
+                    >Syndrome associant : asthénie, céphalées, vertige, nausée
+                    (Intoxication au CO)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+      <div class="uk-navbar-right">
+        <div class="uk-navbar-item">
+          <form action="javascript:void(0)">
+            <a
+              class="uk-button uk-button-primary"
+              href="#filter"
+              id="switch"
+              uk-toggle
+              ><span uk-icon="icon: list"></span> Filtrer</a
+            >
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="uk-container uk-container-center uk-width-1-2@s">
+      <ul uk-nav>
+        <li id="tab1" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab1.pdf"
+              >Tableau n°1 : Le Plomb et ses composés</a
+            >
+          </div>
+        </li>
+        <li id="tab2" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab2.pdf"
+              >Tableau n°2 : Le Mercure et ses composés</a
+            >
+          </div>
+        </li>
+        <li id="tab3" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab3.pdf"
+              >Tableau n°3 : L’arsenic et l’hydrogène arsénié</a
+            >
+          </div>
+        </li>
+        <li id="tab4" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab4.pdf"
+              >Tableau n°4 : Le Cobalt et ses composés</a
+            >
+          </div>
+        </li>
+        <li id="tab5" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab5.pdf"
+              >Tableau n°5 : Le phosphore et le sesquisulfure de phosphore</a
+            >
+          </div>
+        </li>
+        <li id="tab6" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab6.pdf"
+              >Tableau n°6 : Le Nickel : ses oxydes, ses sels et les opérations
+              de grillage de mattes de nickel</a
+            >
+          </div>
+        </li>
+        <li id="tab7" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab7.pdf"
+              >Tableau n°7 : L’acide chromique, les chromates et bichromates
+              alcalins et le sulfate de chrome</a
+            >
+          </div>
+        </li>
+        <li id="tab8" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab8.pdf"
+              >Tableau n°8 : Le Bioxyde de Manganèse</a
+            >
+          </div>
+        </li>
+        <li id="tab9" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab9.pdf"
+              >Tableau n°9 : Le Béryllium et ses composés</a
+            >
+          </div>
+        </li>
+        <li id="tab10" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab10.pdf"
+              >Tableau n°10 : Le Fluor, l’acide fluorhydrique et ses sels
+              minéraux</a
+            >
+          </div>
+        </li>
+        <li id="tab11" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab11.pdf"
+              >Tableau n°11 : Le Cadmium et ses composés</a
+            >
+          </div>
+        </li>
+        <li id="tab12" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab12.pdf"
+              >Tableau n°12 : Le Chlorure de sodium</a
+            >
+          </div>
+        </li>
+        <li id="tab13" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab13.pdf"
+              >Tableau n°13 : Les poussières de carbures métalliques frittés (du
+              Tungstène, du Molybdène, du Niobium et d’autres métaux durs)</a
+            >
+          </div>
+        </li>
+        <li id="tab14" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab14.pdf"
+              >Tableau n°14 : Les poussières et les fumées d’oxyde de fer</a
+            >
+          </div>
+        </li>
+        <li id="tab15" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab15.pdf"
+              >Tableau n°15 : L’antimoine et ses dérivés</a
+            >
+          </div>
+        </li>
+        <li id="tab16" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab16.pdf"
+              >Tableau n°16 : Le Sélénium et ses dérivés minéraux</a
+            >
+          </div>
+        </li>
+        <li id="tab17" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab17.pdf"
+              >Tableau n°17 : Les poussières minérales renfermant de la silice
+              libre</a
+            >
+          </div>
+        </li>
+        <li id="tab18" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab18.pdf"
+              >Tableau n°18 : Les poussières d’amiante</a
+            >
+          </div>
+        </li>
+        <li id="tab19" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab19.pdf"
+              >Tableau n°19 : Les ciments (Aluminosilicates de calcium)</a
+            >
+          </div>
+        </li>
+        <li id="tab20" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab20.pdf"
+              >Tableau n°20 : Le Chlorure de méthyle</a
+            >
+          </div>
+        </li>
+        <li id="tab21" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab21.pdf"
+              >Tableau n°21 : Le Tétrachlorure de carbone</a
+            >
+          </div>
+        </li>
+        <li id="tab22" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab22.pdf"
+              >Tableau n°22 : Le Tétrachloréthane</a
+            >
+          </div>
+        </li>
+        <li id="tab23" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab23.pdf"
+              >Tableau n°23 : Les dérivés halogènes suivants des hydrocarbures
+              aliphatiques</a
+            >
+          </div>
+        </li>
+        <li id="tab24" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab24.pdf"
+              >Tableau n°24 : Le Bromure de méthyle</a
+            >
+          </div>
+        </li>
+        <li id="tab25" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab25.pdf"
+              >Tableau n°25 : Les Amines aliphatiques et alicycliques</a
+            >
+          </div>
+        </li>
+        <li id="tab26" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab26.pdf"
+              >Tableau n°26 : Le Disulfure de carbone</a
+            >
+          </div>
+        </li>
+        <li id="tab27" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab27.pdf"
+              >Tableau n°27 : L’Hexane</a
+            >
+          </div>
+        </li>
+        <li id="tab28" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab28.pdf"
+              >Tableau n°28 : L’Aldéhyde formique et ses polymères</a
+            >
+          </div>
+        </li>
+        <li id="tab29" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab29.pdf"
+              >Tableau n°29 : Le Furfural et l’alcool furfurylique</a
+            >
+          </div>
+        </li>
+        <li id="tab30" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab30.pdf"
+              >Tableau n°30 : Dérivés nitrés des glycols et du glycérol</a
+            >
+          </div>
+        </li>
+        <li id="tab31" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab31.pdf"
+              >Tableau n°31 : Le Benzène et tous les produits en renfermant
+              notamment le toluène et les xylènes</a
+            >
+          </div>
+        </li>
+        <li id="tab32" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab32.pdf"
+              >Tableau n°32 : Les dérivés halogènes des hydrocarbures
+              aromatiques</a
+            >
+          </div>
+        </li>
+        <li id="tab33" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab33.pdf"
+              >Tableau n°33 : Les Amines aromatiques, leurs dérivés hydroxyles,
+              halogènes, nitrosés, nitrés et sulfonés et le 4-nitro diphényle</a
+            >
+          </div>
+        </li>
+        <li id="tab34" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab34.pdf"
+              >Tableau n°34 : La phénylhydrazine</a
+            >
+          </div>
+        </li>
+        <li id="tab35" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab35.pdf"
+              >Tableau n°35 : Les dérivés nitrés chloronitrés des carbures
+              benzéniques</a
+            >
+          </div>
+        </li>
+        <li id="tab36" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab36.pdf"
+              >Tableau n°36 : Les dérivés nitrés du phénol (Dinitrophénols,
+              Dinitro-orthocresol, dinoseb), Le pentachlorophénol, les
+              pentachlorophénates et les dérivés halogénés de
+              l’hydroxybenzonitrile (Bromoxynil, Ioxynil)</a
+            >
+          </div>
+        </li>
+        <li id="tab37" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab37.pdf"
+              >Tableau n°37 : Les goudrons de houille, les huiles de houille
+              (comprenant les fractions de distillation dites « phénoliques » «
+              naphtaléniques », « acénaphténiques » et « chryséniques ») Les
+              brais de houille et les suies de combustion du charbon</a
+            >
+          </div>
+        </li>
+        <li id="tab38" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab38.pdf"
+              >Tableau n°38 : Les extraits aromatiques du pétrole et les suies
+              de combustion des produits pétroliers</a
+            >
+          </div>
+        </li>
+        <li id="tab39" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab39.pdf"
+              >Tableau n°39 : Les huiles et les graisses d’origine minérale ou
+              de synthèse</a
+            >
+          </div>
+        </li>
+        <li id="tab40" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab40.pdf"
+              >Tableau n°40 : Autres solvants organiques liquides à usage
+              professionnel</a
+            >
+          </div>
+        </li>
+        <li id="tab41" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab41.pdf"
+              >Tableau n°41 : Les Résines époxydiques et leurs constituants</a
+            >
+          </div>
+        </li>
+        <li id="tab42" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab42.pdf"
+              >Tableau n°42 : Les Isocyanates organiques</a
+            >
+          </div>
+        </li>
+        <li id="tab43" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab43.pdf"
+              >Tableau n°43 : Le Chlorure de vinyle monomère</a
+            >
+          </div>
+        </li>
+        <li id="tab44" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab44.pdf"
+              >Tableau n°44 : Le méthacrylate de méthyle</a
+            >
+          </div>
+        </li>
+        <li id="tab44bis" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab44bis.pdf"
+              >Tableau n°44 (bis) : Affections professionnelles de mécanisme
+              allergique provoquées par les protéines du latex (ou caoutchouc
+              naturel)</a
+            >
+          </div>
+        </li>
+        <li id="tab45" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab45.pdf"
+              >Tableau n°45 : Les pesticides anticholinesthérasiques :
+              organophosphorés et les carbamates, et les pesticides
+              organochlorés</a
+            >
+          </div>
+        </li>
+        <li id="tab46" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab46.pdf"
+              >Tableau n°46 : Les Aminoglycosides notamment la streptomycine, la
+              néomycine et leurs sels</a
+            >
+          </div>
+        </li>
+        <li id="tab47" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab47.pdf"
+              >Tableau n°47 : Les Pénicillines et leurs sels et les
+              céphalosporines</a
+            >
+          </div>
+        </li>
+        <li id="tab48" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab48.pdf"
+              >Tableau n°48 : La Chlorpromazine</a
+            >
+          </div>
+        </li>
+        <li id="tab49" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab49.pdf"
+              >Tableau n°49 : Les enzymes</a
+            >
+          </div>
+        </li>
+        <li id="tab50" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab50.pdf"
+              >Tableau n°50 : L’Halothane</a
+            >
+          </div>
+        </li>
+        <li id="tab51" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab51.pdf"
+              >Tableau n°51 : Les Phénothiazines</a
+            >
+          </div>
+        </li>
+        <li id="tab52" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab52.pdf"
+              >Tableau n°52 : Les Macrolides</a
+            >
+          </div>
+        </li>
+        <li id="tab53" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab53.pdf"
+              >Tableau n°53 : Les poussières textiles végétales</a
+            >
+          </div>
+        </li>
+        <li id="tab54" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab54.pdf"
+              >Tableau n°54 : Les bois et le liège</a
+            >
+          </div>
+        </li>
+        <li id="tab55" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab55.pdf"
+              >Tableau n°55 : Les poussières de foin et les produits végétaux
+              moisis</a
+            >
+          </div>
+        </li>
+        <li id="tab56" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab56.pdf"
+              >Tableau n°56 : Les céréales et les farines</a
+            >
+          </div>
+        </li>
+        <li id="tab57" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab57.pdf"
+              >Tableau n°57 : Les autres poussières végétales</a
+            >
+          </div>
+        </li>
+        <li id="tab58" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab58.pdf"
+              >Tableau n°58 : Les autres agents responsables d’affections
+              respiratoires de mécanisme allergique</a
+            >
+          </div>
+        </li>
+        <li id="tab59" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab59.pdf"
+              >Tableau n°59 : Les autres agents responsables de dermatoses
+              eczématiformes de mécanisme allergique</a
+            >
+          </div>
+        </li>
+        <li id="tab60" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab60.pdf"
+              >Tableau n°60 : Les Brucelloses</a
+            >
+          </div>
+        </li>
+        <li id="tab61" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab61.pdf"
+              >Tableau n°61 : Les spirochétoses professionnelles</a
+            >
+          </div>
+        </li>
+        <li id="tab62" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab62.pdf"
+              >Tableau n°62 : Le charbon professionnel</a
+            >
+          </div>
+        </li>
+        <li id="tab63" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab63.pdf"
+              >Tableau n°63 : Les bacilles tuberculeux</a
+            >
+          </div>
+        </li>
+        <li id="tab64" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab64.pdf"
+              >Tableau n°64 : Le tétanos professionnel</a
+            >
+          </div>
+        </li>
+        <li id="tab65" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab65.pdf"
+              >Tableau n°65 : Les rickettsies</a
+            >
+          </div>
+        </li>
+        <li id="tab66" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab66.pdf"
+              >Tableau n°66: La Tularémie</a
+            >
+          </div>
+        </li>
+        <li id="tab67" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab67.pdf"
+              >Tableau n°67 : L’Ornithose psittacose</a
+            >
+          </div>
+        </li>
+        <li id="tab68" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab68.pdf"
+              >Tableau n°68 : Les Pasteurelloses</a
+            >
+          </div>
+        </li>
+        <li id="tab69" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab69.pdf"
+              >Tableau n°69 : Le Rouget du porc (Erysipéloïde de
+              Baker-Rosenbach)</a
+            >
+          </div>
+        </li>
+        <li id="tab70" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab70.pdf"
+              >Tableau n°70 : Les hépatites virales professionnelles</a
+            >
+          </div>
+        </li>
+        <li id="tab71" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab71.pdf"
+              >Tableau n°71 : La rage professionnelle</a
+            >
+          </div>
+        </li>
+        <li id="tab72" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab72.pdf"
+              >Tableau n°72 : L’anguillulose professionnelle</a
+            >
+          </div>
+        </li>
+        <li id="tab73" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab73.pdf"
+              >Tableau n°73 : L’ankylostomose professionnelle</a
+            >
+          </div>
+        </li>
+        <li id="tab74" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab74.pdf"
+              >Tableau n°74 : Les mycoses cutanées, le perionyxis et l’onyxis
+              d’origine professionnelle</a
+            >
+          </div>
+        </li>
+        <li id="tab75" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab75.pdf"
+              >Tableau n°75 : Les agents infectieux susceptibles d'être
+              contractés en milieu d’hospitalisation</a
+            >
+          </div>
+        </li>
+        <li id="tab76" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab76.pdf"
+              >Tableau n°76 : Les rayonnements ionisants</a
+            >
+          </div>
+        </li>
+        <li id="tab77" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab77.pdf"
+              >Tableau n°77 : Le rayonnement non ionisants</a
+            >
+          </div>
+        </li>
+        <li id="tab78" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab78.pdf"
+              >Tableau n°78 : Les Atmosphères hyperbares</a
+            >
+          </div>
+        </li>
+        <li id="tab79" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab79.pdf"
+              >Tableau n°79 : Les Atmosphères hypobares</a
+            >
+          </div>
+        </li>
+        <li id="tab80" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab80.pdf"
+              >Tableau n°80 : Les Bruits lésionnels</a
+            >
+          </div>
+        </li>
+        <li id="tab81" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab81.pdf"
+              >Tableau n°81 : Les Vibrations</a
+            >
+          </div>
+        </li>
+        <li id="tab82" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab82.pdf"
+              >Tableau n°82 : Les Gestes et les postures</a
+            >
+          </div>
+        </li>
+        <li id="tab83" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab83.pdf"
+              >Tableau n°83 : Le Travail à haute température</a
+            >
+          </div>
+        </li>
+        <li id="tab84" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab84.pdf"
+              >Tableau n°84 : L’Oxyde de Carbone</a
+            >
+          </div>
+        </li>
+        <li id="tab85" class="mptab">
+          <div uk-lightbox>
+            <a data-type="iframe" href="pdf.html?file=inc/tab85.pdf"
+              >Tableau n°85 : Les brouillards d'acides minéraux forts comportant
+              l'acide sulfurique</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="uikit/dist/js/uikit.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <script>
+      var filterState = false;
+      (function() {
+        document.getElementById("switch").addEventListener("click", function() {
+          if (filterState) {
+            [].forEach.call(document.querySelectorAll(".mptab"), function(
+              mptab
+            ) {
+              mptab.style.display = "";
+            });
+            document
+              .getElementById("switch")
+              .classList.replace("uk-button-danger", "uk-button-primary");
+            filterState = false;
+          }
+        });
+        Array.from(document.getElementsByClassName("mptabs")).forEach(function(
+          e
+        ) {
+          e.addEventListener("click", function() {
+            [].forEach.call(document.querySelectorAll(".mptab"), function(
+              mptab
+            ) {
+              mptab.style.display = "none";
+            });
+            [].forEach.call(
+              document.querySelectorAll(this.dataset.mptabs),
+              function(mptab) {
+                mptab.style.display = "";
+              }
+            );
+            if (!filterState) {
+              document
+                .getElementById("switch")
+                .classList.replace("uk-button-primary", "uk-button-danger");
+              filterState = true;
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+[submodule "docs/uikit"]
+	path = docs/uikit
+	url = https://github.com/uikit/uikit
+[submodule "docs/pdfjs-dist"]
+	path = docs/pdfjs-dist
+	url = https://github.com/mozilla/pdfjs-dist
