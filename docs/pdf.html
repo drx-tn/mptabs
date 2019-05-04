@@ -16,6 +16,7 @@
         <a id="next" uk-icon="icon: forward; ratio: 2"></a>
         <a id="zoomin" uk-icon="icon: plus-circle; ratio: 2"></a>
       </div>
+      <progress id="progressBar" class="uk-progress" value="" max=""></progress>
       <canvas id="pdf-render" class="uk-preserve-width"></canvas>
     </div>
 
@@ -29,7 +30,8 @@
         pageNumPending = null,
         scale = 1,
         canvas,
-        ctx;
+        ctx,
+        loadingTask;
 
       function parseQueryString(query) {
         var parts = query.split("&");
@@ -100,25 +102,37 @@
         // Update page counters
         document.getElementById("pageNum").textContent = num;
       }
-      document.getElementById("prev").addEventListener("click", onPrevPage);
-      document.getElementById("next").addEventListener("click", onNextPage);
-      document.getElementById("zoomin").addEventListener("click", function() {
-        scale += 0.2;
-        queueRenderPage(pageNum);
-      });
-      document.getElementById("zoomout").addEventListener("click", function() {
-        scale -= 0.2;
-        queueRenderPage(pageNum);
-      });
       (function() {
         let params = parseQueryString(window.location.search.substring(1));
         if (params.file) {
+          document.getElementById("prev").addEventListener("click", onPrevPage);
+          document.getElementById("next").addEventListener("click", onNextPage);
+          document
+            .getElementById("zoomin")
+            .addEventListener("click", function() {
+              scale += 0.2;
+              queueRenderPage(pageNum);
+            });
+          document
+            .getElementById("zoomout")
+            .addEventListener("click", function() {
+              scale -= 0.2;
+              queueRenderPage(pageNum);
+            });
           var url = params.file;
           canvas = document.getElementById("pdf-render");
           ctx = canvas.getContext("2d");
           pdfjsLib.GlobalWorkerOptions.workerSrc =
             "pdfjs-dist/build/pdf.worker.min.js";
-          pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+          loadingTask = pdfjsLib.getDocument(url);
+          let progressBar = document.getElementById("progressBar");
+          loadingTask.onProgress = function(progress) {
+            progressBar.value = progress.loaded;
+            progressBar.max = progress.total;
+            if (progress.loaded >= progress.total)
+              progressBar.style.display = "none";
+          };
+          loadingTask.promise.then(function(pdfDoc_) {
             pdfDoc = pdfDoc_;
             document.getElementById("pagesCount").textContent = pdfDoc.numPages;
             renderPage(pageNum);
