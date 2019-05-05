@@ -1,6 +1,6 @@
 # MPTabs
 
-<p align="center"><img src="docs/mptabs.svg" width="300"/></p>
+<p align="center"><img src="mptabs.svg" width="300"/></p>
 
 ## A propos
 
