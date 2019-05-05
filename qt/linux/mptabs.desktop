@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.1.1
+Terminal=false
+NoDisplay=false
+Name=MPTabs
+Comment=Application tableaux des maladies professionnelles en Tunisie
+Exec=/opt/mptabs/mptabs
+Icon=/usr/share/pixmaps/mptabs.png
+Type=Application
+Categories=Education;Science;
