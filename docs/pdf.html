@@ -1,144 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lecture du tableau</title>
-    <link rel="stylesheet" href="uikit/dist/css/uikit.min.css" />
-  </head>
-  <body>
-    <div class="uk-container uk-text-center">
-      <div uk-sticky>
-        <a id="zoomout" uk-icon="icon: minus-circle; ratio: 2"></a>
-        <a id="prev" uk-icon="icon: reply; ratio: 2"></a>
-        <span id="pageNum"></span> / <span id="pagesCount"></span>
-        <a id="next" uk-icon="icon: forward; ratio: 2"></a>
-        <a id="zoomin" uk-icon="icon: plus-circle; ratio: 2"></a>
-      </div>
-      <progress id="progressBar" class="uk-progress" value="" max=""></progress>
-      <canvas id="pdf-render" class="uk-preserve-width"></canvas>
-    </div>
 
-    <script src="uikit/dist/js/uikit.min.js"></script>
-    <script src="uikit/dist/js/uikit-icons.min.js"></script>
-    <script src="pdfjs-dist/build/pdf.min.js"></script>
-    <script>
-      var pdfDoc = null,
-        pageNum = 1,
-        pageRendering = false,
-        pageNumPending = null,
-        scale = 1,
-        canvas,
-        ctx,
-        loadingTask;
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Lecture du tableau</title>
+	<link rel="stylesheet" href="uikit/dist/css/uikit.min.css" />
+</head>
 
-      function parseQueryString(query) {
-        var parts = query.split("&");
-        var params = Object.create(null);
-        for (var i = 0, ii = parts.length; i < ii; ++i) {
-          var param = parts[i].split("=");
-          var key = param[0].toLowerCase();
-          var value = param.length > 1 ? param[1] : null;
-          params[decodeURIComponent(key)] = decodeURIComponent(value);
-        }
-        return params;
-      }
-      function queueRenderPage(num) {
-        if (pageRendering) {
-          pageNumPending = num;
-        } else {
-          renderPage(num);
-        }
-      }
+<body>
+	<div class="uk-container uk-text-center">
+		<div uk-sticky>
+			<a id="zoomout" uk-icon="icon: minus-circle; ratio: 2"></a>
+			<a id="prev" uk-icon="icon: reply; ratio: 2"></a>
+			<span id="pageNum"></span> / <span id="pagesCount"></span>
+			<a id="next" uk-icon="icon: forward; ratio: 2"></a>
+			<a id="zoomin" uk-icon="icon: plus-circle; ratio: 2"></a>
+		</div>
+		<progress id="progressBar" class="uk-progress" value="" max=""></progress>
+		<canvas id="pdf-render" class="uk-preserve-width"></canvas>
+	</div>
+	<script>
+		window.fetch = null;
+	</script>
+	<script src="fetch/fetch.js"></script>
+	<script src="uikit/dist/js/uikit.min.js"></script>
+	<script src="uikit/dist/js/uikit-icons.min.js"></script>
+	<script src="pdfjs-dist/build/pdf.min.js"></script>
+	<script>
+		var pdfDoc = null,
+			pageNum = 1,
+			pageRendering = false,
+			pageNumPending = null,
+			scale = 1,
+			canvas,
+			ctx,
+			loadingTask;
 
-      /**
-       * Displays previous page.
-       */
-      function onPrevPage() {
-        if (pageNum <= 1) {
-          return;
-        }
-        pageNum--;
-        queueRenderPage(pageNum);
-      }
+		function parseQueryString(query) {
+			var parts = query.split("&");
+			var params = Object.create(null);
+			for (var i = 0, ii = parts.length; i < ii; ++i) {
+				var param = parts[i].split("=");
+				var key = param[0].toLowerCase();
+				var value = param.length > 1 ? param[1] : null;
+				params[decodeURIComponent(key)] = decodeURIComponent(value);
+			}
+			return params;
+		}
+		function queueRenderPage(num) {
+			if (pageRendering) {
+				pageNumPending = num;
+			} else {
+				renderPage(num);
+			}
+		}
 
-      /**
-       * Displays next page.
-       */
-      function onNextPage() {
-        if (pageNum >= pdfDoc.numPages) {
-          return;
-        }
-        pageNum++;
-        queueRenderPage(pageNum);
-      }
-      function renderPage(num) {
-        pageRendering = true;
-        // Using promise to fetch the page
-        pdfDoc.getPage(num).then(function(page) {
-          var viewport = page.getViewport({ scale: scale });
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
+		/**
+		 * Displays previous page.
+		 */
+		function onPrevPage() {
+			if (pageNum <= 1) {
+				return;
+			}
+			pageNum--;
+			queueRenderPage(pageNum);
+		}
 
-          // Render PDF page into canvas context
-          var renderContext = {
-            canvasContext: ctx,
-            viewport: viewport
-          };
-          var renderTask = page.render(renderContext);
+		/**
+		 * Displays next page.
+		 */
+		function onNextPage() {
+			if (pageNum >= pdfDoc.numPages) {
+				return;
+			}
+			pageNum++;
+			queueRenderPage(pageNum);
+		}
+		function renderPage(num) {
+			pageRendering = true;
+			// Using promise to fetch the page
+			pdfDoc.getPage(num).then(function (page) {
+				var viewport = page.getViewport({ scale: scale });
+				canvas.height = viewport.height;
+				canvas.width = viewport.width;
 
-          // Wait for rendering to finish
-          renderTask.promise.then(function() {
-            pageRendering = false;
-            if (pageNumPending !== null) {
-              // New page rendering is pending
-              renderPage(pageNumPending);
-              pageNumPending = null;
-            }
-          });
-        });
+				// Render PDF page into canvas context
+				var renderContext = {
+					canvasContext: ctx,
+					viewport: viewport
+				};
+				var renderTask = page.render(renderContext);
 
-        // Update page counters
-        document.getElementById("pageNum").textContent = num;
-      }
-      (function() {
-        let params = parseQueryString(window.location.search.substring(1));
-        if (params.file) {
-          document.getElementById("prev").addEventListener("click", onPrevPage);
-          document.getElementById("next").addEventListener("click", onNextPage);
-          document
-            .getElementById("zoomin")
-            .addEventListener("click", function() {
-              scale += 0.2;
-              queueRenderPage(pageNum);
-            });
-          document
-            .getElementById("zoomout")
-            .addEventListener("click", function() {
-              scale -= 0.2;
-              queueRenderPage(pageNum);
-            });
-          var url = params.file;
-          canvas = document.getElementById("pdf-render");
-          ctx = canvas.getContext("2d");
-          pdfjsLib.GlobalWorkerOptions.workerSrc =
-            "pdfjs-dist/build/pdf.worker.min.js";
-          loadingTask = pdfjsLib.getDocument(url);
-          let progressBar = document.getElementById("progressBar");
-          loadingTask.onProgress = function(progress) {
-            progressBar.value = progress.loaded;
-            progressBar.max = progress.total;
-            if (progress.loaded >= progress.total)
-              progressBar.style.display = "none";
-          };
-          loadingTask.promise.then(function(pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            document.getElementById("pagesCount").textContent = pdfDoc.numPages;
-            renderPage(pageNum);
-          });
-        }
-      })();
-    </script>
-  </body>
+				// Wait for rendering to finish
+				renderTask.promise.then(function () {
+					pageRendering = false;
+					if (pageNumPending !== null) {
+						// New page rendering is pending
+						renderPage(pageNumPending);
+						pageNumPending = null;
+					}
+				});
+			});
+
+			// Update page counters
+			document.getElementById("pageNum").textContent = num;
+		}
+		(function () {
+			let params = parseQueryString(window.location.search.substring(1));
+			if (params.file) {
+				document.getElementById("prev").addEventListener("click", onPrevPage);
+				document.getElementById("next").addEventListener("click", onNextPage);
+				document
+					.getElementById("zoomin")
+					.addEventListener("click", function () {
+						scale += 0.2;
+						queueRenderPage(pageNum);
+					});
+				document
+					.getElementById("zoomout")
+					.addEventListener("click", function () {
+						scale -= 0.2;
+						queueRenderPage(pageNum);
+					});
+				var url = params.file;
+				canvas = document.getElementById("pdf-render");
+				ctx = canvas.getContext("2d");
+				pdfjsLib.GlobalWorkerOptions.workerSrc =
+					"pdfjs-dist/build/pdf.worker.min.js";
+				loadingTask = pdfjsLib.getDocument(url);
+				let progressBar = document.getElementById("progressBar");
+				loadingTask.onProgress = function (progress) {
+					progressBar.value = progress.loaded;
+					progressBar.max = progress.total;
+					if (progress.loaded >= progress.total)
+						progressBar.style.display = "none";
+				};
+				loadingTask.promise.then(function (pdfDoc_) {
+					pdfDoc = pdfDoc_;
+					document.getElementById("pagesCount").textContent = pdfDoc.numPages;
+					renderPage(pageNum);
+				});
+			}
+		})();
+	</script>
+</body>
+
 </html>

@@ -6,6 +6,7 @@
 !/mptabs.svg
 !/docs
 /docs/*
+!/docs/fetch
 !/docs/pdfjs-dist
 !/docs/uikit
 !/docs/mptabs.png
