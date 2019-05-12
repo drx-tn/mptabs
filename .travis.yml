@@ -15,7 +15,7 @@ matrix:
           - extra-android-m2repository
       script:
         - jdk_switcher use oraclejdk8
-        - gradle assembleRelease
+        - ./gradlew assembleRelease
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
         - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

@@ -171,3 +171,11 @@
 !/android/src/main/res/values/styles.xml
 !/.travis.yml
 !/appveyor.yml
+!/gradlew
+!/gradlew.bat
+!/gradle
+/gradle/*
+!/gradle/wrapper
+/gradle/wrapper/*
+!/gradle/wrapper/gradle-wrapper.properties
+!/gradle/wrapper/gradle-wrapper.jar
