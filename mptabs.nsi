@@ -1,7 +1,7 @@
 Name "MPTabs"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\French.nlf"
 OutFile "mptabs-${VERSION}_${PLATFORM}.exe"
-# Unicode true
+Unicode true
 SetCompress force
 SetCompressor /FINAL /SOLID lzma
 SetDatablockOptimize on
