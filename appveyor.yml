@@ -13,6 +13,8 @@ init:
     call "%ProgramFiles(x86)%\%VS_FOLDER%\vcvarsall.bat" %platform%
 
     cd /D "%APPVEYOR_BUILD_FOLDER%"
+install:
+  - git submodule update --init --recursive
 environment:
   matrix:
   - QTDIR: C:\Qt\5.10.1\msvc2017_64
