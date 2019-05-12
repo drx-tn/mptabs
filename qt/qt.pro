@@ -1,4 +1,4 @@
-QT += webkitwidgets
+QT += webenginewidgets
 TARGET = mptabs
 TEMPLATE = app
 SOURCES += main.cpp

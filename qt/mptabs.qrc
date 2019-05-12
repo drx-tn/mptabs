@@ -7,6 +7,7 @@
 		<file alias="uikit/dist/js/uikit-icons.min.js">../docs/uikit/dist/js/uikit-icons.min.js</file>
 		<file alias="pdfjs-dist/build/pdf.min.js">../docs/pdfjs-dist/build/pdf.min.js</file>
 		<file alias="pdfjs-dist/build/pdf.worker.min.js">../docs/pdfjs-dist/build/pdf.worker.min.js</file>
+		<file alias="fetch/fetch.js">../docs/fetch/fetch.js</file>
 		<file alias="inc/tab1.pdf">../docs/inc/tab1.pdf</file>
 		<file alias="inc/tab2.pdf">../docs/inc/tab2.pdf</file>
 		<file alias="inc/tab3.pdf">../docs/inc/tab3.pdf</file>

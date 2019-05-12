@@ -1,11 +1,11 @@
 #include <QApplication>
-#include <QWebView>
+#include <QWebEngineView>
 #include <QDesktopWidget>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-	QWebView *view = new QWebView();
+	QWebEngineView *view = new QWebEngineView();
 	view->load(QUrl("qrc:/index.html"));
 	view->setWindowTitle("MPTabs");
 	QRect screenGeometry = QApplication::desktop()->screenGeometry();
