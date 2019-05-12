@@ -1,0 +1,49 @@
+branches:
+  only:
+  - master
+# skip_non_tags: true
+max_jobs: 1
+image: Visual Studio 2017
+init:
+- cmd: >-
+    call "%QTDIR%\bin\qtenv2.bat"
+
+    set PATH=C:\Qt\Tools\QtCreator\bin;%ProgramFiles(x86)%\NSIS\bin;%PATH%
+
+    call "%ProgramFiles(x86)%\%VS_FOLDER%\vcvarsall.bat" %platform%
+
+    cd /D "%APPVEYOR_BUILD_FOLDER%"
+environment:
+  matrix:
+  - QTDIR: C:\Qt\5.10.1\msvc2017_64
+    VS_FOLDER: Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build
+    PLATFORM: x64
+  - QTDIR: C:\Qt\5.10.1\msvc2015
+    VS_FOLDER: Microsoft Visual Studio 14.0\VC
+    PLATFORM: x86
+build_script:
+- cmd: >-
+    qmake -config release
+
+    nmake
+
+    nmake clean
+
+    windeployqt --release --no-patchqt --no-quick-import --no-translations --no-compiler-runtime --no-webkit2 --no-angle --no-opengl-sw qt\release
+
+    makensis /DVERSION=%appveyor_repo_tag_name% /DPLATFORM=%platform% mptabs.nsi
+
+artifacts:
+- path: mptabs-$(appveyor_repo_tag_name)_$(platform).exe
+  name: mptabs.exe
+deploy:
+- provider: GitHub
+  tag: $(appveyor_repo_tag_name)
+  release: $(appveyor_repo_tag_name)
+  auth_token:
+    secure: q++O0LgZ4Hc2qm7as7sbLPo060gqbJXhs/3pQzTtjMak51mCOl1S9IFD8MdFBQS1
+  artifact: mptabs.exe
+  force_update: true
+  on:
+    branch: master
+    appveyor_repo_tag: true

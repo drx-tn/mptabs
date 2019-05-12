@@ -169,3 +169,5 @@
 !/android/src/main/res/values/colors.xml
 !/android/src/main/res/values/strings.xml
 !/android/src/main/res/values/styles.xml
+!/.travis.yml
+!/appveyor.yml

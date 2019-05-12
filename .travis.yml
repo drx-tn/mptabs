@@ -1,0 +1,74 @@
+matrix:
+  include:
+    - language: android
+      jdk: oraclejdk8
+      sudo: false
+      addons:
+        apt:
+          packages:
+            - oracle-java8-installer
+      android:
+        components:
+          - build-tools-28.0.3
+          - android-28
+          - android-23
+          - extra-android-m2repository
+      script:
+        - jdk_switcher use oraclejdk8
+        - ./gradlew assembleRelease
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+          - $HOME/.android/build-cache
+      install: true
+      before_deploy:
+        - ${ANDROID_HOME}/build-tools/28.0.3/zipalign -v -p 4 android/build/outputs/apk/release/mptabs-${TRAVIS_BRANCH}-release-unsigned.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
+        - keytool -genkey -alias mptabs -keyalg RSA -keysize 2048 -keystore keystore.jks -dname "CN=Dr X, OU=Médocs, O=DrX.tn, L=Sousse, S=Sousse, C=TN" -storepass ${BIG_SECRET} -keypass ${BIG_SECRET}
+        - ${ANDROID_HOME}/build-tools/28.0.3/apksigner sign --ks keystore.jks --ks-pass pass:${BIG_SECRET} --ks-key-alias mptabs --key-pass pass:${BIG_SECRET} --out mptabs-${TRAVIS_BRANCH}.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
+      deploy:
+        provider: releases
+        api_key:
+          secure: AyQxRWRZduT3pSPUyfW6dNvb+FV4faQTY2Phed2qBPvulwuSL6rVhgY/xmA1YphuF5uwaGwF0Si0xT85DGjX1nC9NyFLD8JpSDOiRTZUG7NqKnxylXDbDVY+W/NrV+XfV50U3uu3GG8/dBvuiCEn4pYtl/B60xjV6TJo+KMH4YLD6RznvYctxnP0y0OTKUHuFaBTL9kgBnH1MgWFgjDu7nEdVrNEYB1q2w92SkixjsYxYZA5xCmIizJuuXT5QvDmIPVAv7yu6UVwNkkjG/BY4rak2KD5yUbaiiJ8bBsEXXdDNGpgiN9lOh3BWoYSPTj05viJyp5amzLIKVl9pFimmDbmOS3kVjAbLd4RLBd9joHp2uZ8PFTatEiCspVsDwyAfulPw6VdbF2GuWAS1Qu4wQDtkjSgDaJDMfmlkdxFWHnl+LRep+8fJbeAPpPmUpuA40syvd4T5ez6gsW27E60G+EW39J0VKQfjgvhWH5JjD0jd5hbzkMjBu5zFsjMEDxDPrQI3fsMNQ+ZDqP5W6/oVR0AansUPca/nv+WWihngOqZ+h9MOKkI9E6TU/tXJqBbSEJgHg8FdGNKp4e9Pfmom3KQoLPi+ThHla/bl+1Waj/JB2L49lSoK5QTkOVwqRyxlTjxcYh+mniFvg7CQR3TF23uORRpX/HSNGjk7l3SqNY=
+        file: mptabs-${TRAVIS_BRANCH}.apk
+        name: ${TRAVIS_BRANCH}
+        draft: false
+        prerelease: false
+        skip_cleanup: true
+        on:
+          repo: drx-tn/mptabs
+          branch: master
+          tags: true
+    - language: c++
+      compiler: clang
+      os: osx
+      osx_image: xcode9.3
+      before_install:
+        - brew update
+      install:
+        - brew install cppcheck qt
+        - brew link --force qt
+      before_script:
+        - export QMAKESPEC=macx-clang
+        - qmake -config release
+      script:
+        - make
+        - macdeployqt qt/mptabs.app -verbose=3 -dmg
+        - mv qt/mptabs.dmg qt/mptabs-${TRAVIS_BRANCH}.dmg
+      deploy:
+        provider: releases
+        api_key:
+          secure: AyQxRWRZduT3pSPUyfW6dNvb+FV4faQTY2Phed2qBPvulwuSL6rVhgY/xmA1YphuF5uwaGwF0Si0xT85DGjX1nC9NyFLD8JpSDOiRTZUG7NqKnxylXDbDVY+W/NrV+XfV50U3uu3GG8/dBvuiCEn4pYtl/B60xjV6TJo+KMH4YLD6RznvYctxnP0y0OTKUHuFaBTL9kgBnH1MgWFgjDu7nEdVrNEYB1q2w92SkixjsYxYZA5xCmIizJuuXT5QvDmIPVAv7yu6UVwNkkjG/BY4rak2KD5yUbaiiJ8bBsEXXdDNGpgiN9lOh3BWoYSPTj05viJyp5amzLIKVl9pFimmDbmOS3kVjAbLd4RLBd9joHp2uZ8PFTatEiCspVsDwyAfulPw6VdbF2GuWAS1Qu4wQDtkjSgDaJDMfmlkdxFWHnl+LRep+8fJbeAPpPmUpuA40syvd4T5ez6gsW27E60G+EW39J0VKQfjgvhWH5JjD0jd5hbzkMjBu5zFsjMEDxDPrQI3fsMNQ+ZDqP5W6/oVR0AansUPca/nv+WWihngOqZ+h9MOKkI9E6TU/tXJqBbSEJgHg8FdGNKp4e9Pfmom3KQoLPi+ThHla/bl+1Waj/JB2L49lSoK5QTkOVwqRyxlTjxcYh+mniFvg7CQR3TF23uORRpX/HSNGjk7l3SqNY=
+        file: qt/mptabs-${TRAVIS_BRANCH}.dmg
+        name: ${TRAVIS_BRANCH}
+        draft: false
+        prerelease: false
+        skip_cleanup: true
+        on:
+          repo: drx-tn/mptabs
+          tags: true
+notifications:
+  email: false
