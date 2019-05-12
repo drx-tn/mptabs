@@ -1,18 +1,20 @@
-# MPTabs
-[![Licence](https://img.shields.io/github/license/drx-tn/mptabs.svg)](LICENSE) [![Etat du build sur Travis](https://travis-ci.org/drx-tn/mptabs.svg?branch=master)](https://travis-ci.org/drx-tn/mptabs) [![Etat du build sur Appveyor](https://ci.appveyor.com/api/projects/status/usg9qx1bejcilxce/branch/master?svg=true)](https://ci.appveyor.com/project/drxtun61291/mptabs/branch/master) [![Dernière version](https://img.shields.io/github/release/drx-tn/mptabs.svg)](https://github.com/drx-tn/mptabs/releases/latest) [![Nombre de téléchargements](https://img.shields.io/github/downloads/drx-tn/mptabs/total.svg)](https://github.com/drx-tn/mptabs/releases)
+# MPTabs [![Licence](https://img.shields.io/github/license/drx-tn/mptabs.svg)](LICENSE) [![Etat du build sur Travis](https://travis-ci.org/drx-tn/mptabs.svg?branch=master)](https://travis-ci.org/drx-tn/mptabs) [![Etat du build sur Appveyor](https://ci.appveyor.com/api/projects/status/usg9qx1bejcilxce/branch/master?svg=true)](https://ci.appveyor.com/project/drxtun61291/mptabs/branch/master) [![Dernière version](https://img.shields.io/github/release/drx-tn/mptabs.svg)](https://github.com/drx-tn/mptabs/releases/latest) [![Nombre de téléchargements](https://img.shields.io/github/downloads/drx-tn/mptabs/total.svg)](https://github.com/drx-tn/mptabs/releases)
 
 <p align="center"><img src="mptabs.svg" width="300"/></p>
 
 ## A propos
 Application tableaux des maladies professionnelles en Tunisie. Application gratuite avec code source ouvert (voir [licence GPL-3](LICENSE)).
+
 Application inspirée et utilisant des documents publiés par l'[Institut de Santé et de Sécurité au Travail](http://www.isst.nat.tn).
+
 La version en ligne est disponible sur: http://mptabs.drx.tn
 
-> En savoir plus sur le projet: https://drx-tn
+> En savoir plus sur le projet: https://drx.tn
+
 > Rapporter des bugs ou des erreurs: https://github.com/drx-tn/mptabs/issues
 
 ## Installation
-Vous retrouverez des programmes d'installation en téléchargement pour Windows 32 bits (`mptabs*_x86.exe`) et 64 bits (`mptabs*_x64.exe`), Mac Os et Android sur la page [releases](https://github.com/drx-tn/mptabs/releases).
+Vous trouverez des programmes d'installation en téléchargement pour Windows 32 bits (`mptabs*_x86.exe`) et 64 bits (`mptabs*_x64.exe`), Mac Os et Android sur la page [releases](https://github.com/drx-tn/mptabs/releases).
 
 Pour linux vous devez pour le moment compiler l'application par vous même.
 
@@ -26,7 +28,7 @@ La première étape consiste à cloner ce dépôt et à se diriger à l'intérie
 
 L'application a quelques dépendances supplémentaires qui ont été intégrées sous forme de sous-modules et qui sont:
 * Le framework [UIkit](https://getuikit.com/) (version 3.1.4),
-* Le polyfill [Fetch](https://github.github.io/fetch/) (version .0.4)
+* Le polyfill [Fetch](https://github.github.io/fetch/) (version 2.0.4)
 * Et [PDF.js](https://mozilla.github.io/pdf.js/) (version 2.1.266)
 
 Il faudra donc les intégrer par la commande:
