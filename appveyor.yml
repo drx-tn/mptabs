@@ -17,11 +17,11 @@ install:
   - git submodule update --init --recursive
 environment:
   matrix:
-  - QTDIR: C:\Qt\5.10.1\msvc2017_64
+  - QTDIR: C:\Qt\5.12.2\msvc2017_64
     VS_FOLDER: Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build
     PLATFORM: x64
-  - QTDIR: C:\Qt\5.10.1\msvc2015
-    VS_FOLDER: Microsoft Visual Studio 14.0\VC
+  - QTDIR: C:\Qt\5.12.2\msvc2017
+    VS_FOLDER: Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build
     PLATFORM: x86
 build_script:
 - cmd: >-
