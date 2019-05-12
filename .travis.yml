@@ -32,7 +32,7 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: AyQxRWRZduT3pSPUyfW6dNvb+FV4faQTY2Phed2qBPvulwuSL6rVhgY/xmA1YphuF5uwaGwF0Si0xT85DGjX1nC9NyFLD8JpSDOiRTZUG7NqKnxylXDbDVY+W/NrV+XfV50U3uu3GG8/dBvuiCEn4pYtl/B60xjV6TJo+KMH4YLD6RznvYctxnP0y0OTKUHuFaBTL9kgBnH1MgWFgjDu7nEdVrNEYB1q2w92SkixjsYxYZA5xCmIizJuuXT5QvDmIPVAv7yu6UVwNkkjG/BY4rak2KD5yUbaiiJ8bBsEXXdDNGpgiN9lOh3BWoYSPTj05viJyp5amzLIKVl9pFimmDbmOS3kVjAbLd4RLBd9joHp2uZ8PFTatEiCspVsDwyAfulPw6VdbF2GuWAS1Qu4wQDtkjSgDaJDMfmlkdxFWHnl+LRep+8fJbeAPpPmUpuA40syvd4T5ez6gsW27E60G+EW39J0VKQfjgvhWH5JjD0jd5hbzkMjBu5zFsjMEDxDPrQI3fsMNQ+ZDqP5W6/oVR0AansUPca/nv+WWihngOqZ+h9MOKkI9E6TU/tXJqBbSEJgHg8FdGNKp4e9Pfmom3KQoLPi+ThHla/bl+1Waj/JB2L49lSoK5QTkOVwqRyxlTjxcYh+mniFvg7CQR3TF23uORRpX/HSNGjk7l3SqNY=
+          secure: "RexfIIpI6kyvET5xDoTcll0Ce7jti63QcB1B3tVPtkkqbBpHzhb4n1eLapI/okIb6okn9Hsko5hy2hX5rqGIA3p5T/zUKTv7AwePblHmQr3LxOn8jnfPynIzJTxCd1hxuPLk/wLSwqSSoeBYAQuQNTP3oyQ5nE0LQ818V/k/PQ0j3aXCrkV6GdpgWqf16YAFIYpa2o8nQwVt3XlmLWq1OZtd3U3xH3nh8rK7atCcnV+WE52XBJyeUB9DMugJR0L+jq2A74kgA8DQ2RkKakBVGtfUdf7nXuzcCrtPck00ZdTCbgAe9Ah+KdPoLCHJerDuMOhky1H0KiMYIg00758TrrcDX9kmGugtA4o6wJjqPJPkr36fIRFPNiGhTCmFj1ZgImM77vwjh7cpdXxem6Y6suSQ5jKf6Y8zHA0skWBtszUffgPBwyeqBATXktzgy74NvtTdSxdFttm3xkSpTD36Zt5xLfqeyDqgW34gHUvX9USVG6pRizWgbTqG2KSRl//l9Qlw4Ab1KzRgN2/LEAlIPq3LQ4LZ45tOYDZbC+cHq9DeBOUr/yrGqt999ryfgQqr4jbUgw5341sVYqhtK0BmmmoX5ksDt5BuJlV9BRR8t6NDf6WIQv93yUHqLtdcN+usJ//PO3h1DJ+nYrwJ050X0M/xigw9ampU3ZtsWsI/FL4="
         file: mptabs-${TRAVIS_BRANCH}.apk
         name: ${TRAVIS_BRANCH}
         draft: false
@@ -61,7 +61,7 @@ matrix:
       deploy:
         provider: releases
         api_key:
-          secure: AyQxRWRZduT3pSPUyfW6dNvb+FV4faQTY2Phed2qBPvulwuSL6rVhgY/xmA1YphuF5uwaGwF0Si0xT85DGjX1nC9NyFLD8JpSDOiRTZUG7NqKnxylXDbDVY+W/NrV+XfV50U3uu3GG8/dBvuiCEn4pYtl/B60xjV6TJo+KMH4YLD6RznvYctxnP0y0OTKUHuFaBTL9kgBnH1MgWFgjDu7nEdVrNEYB1q2w92SkixjsYxYZA5xCmIizJuuXT5QvDmIPVAv7yu6UVwNkkjG/BY4rak2KD5yUbaiiJ8bBsEXXdDNGpgiN9lOh3BWoYSPTj05viJyp5amzLIKVl9pFimmDbmOS3kVjAbLd4RLBd9joHp2uZ8PFTatEiCspVsDwyAfulPw6VdbF2GuWAS1Qu4wQDtkjSgDaJDMfmlkdxFWHnl+LRep+8fJbeAPpPmUpuA40syvd4T5ez6gsW27E60G+EW39J0VKQfjgvhWH5JjD0jd5hbzkMjBu5zFsjMEDxDPrQI3fsMNQ+ZDqP5W6/oVR0AansUPca/nv+WWihngOqZ+h9MOKkI9E6TU/tXJqBbSEJgHg8FdGNKp4e9Pfmom3KQoLPi+ThHla/bl+1Waj/JB2L49lSoK5QTkOVwqRyxlTjxcYh+mniFvg7CQR3TF23uORRpX/HSNGjk7l3SqNY=
+          secure: "RexfIIpI6kyvET5xDoTcll0Ce7jti63QcB1B3tVPtkkqbBpHzhb4n1eLapI/okIb6okn9Hsko5hy2hX5rqGIA3p5T/zUKTv7AwePblHmQr3LxOn8jnfPynIzJTxCd1hxuPLk/wLSwqSSoeBYAQuQNTP3oyQ5nE0LQ818V/k/PQ0j3aXCrkV6GdpgWqf16YAFIYpa2o8nQwVt3XlmLWq1OZtd3U3xH3nh8rK7atCcnV+WE52XBJyeUB9DMugJR0L+jq2A74kgA8DQ2RkKakBVGtfUdf7nXuzcCrtPck00ZdTCbgAe9Ah+KdPoLCHJerDuMOhky1H0KiMYIg00758TrrcDX9kmGugtA4o6wJjqPJPkr36fIRFPNiGhTCmFj1ZgImM77vwjh7cpdXxem6Y6suSQ5jKf6Y8zHA0skWBtszUffgPBwyeqBATXktzgy74NvtTdSxdFttm3xkSpTD36Zt5xLfqeyDqgW34gHUvX9USVG6pRizWgbTqG2KSRl//l9Qlw4Ab1KzRgN2/LEAlIPq3LQ4LZ45tOYDZbC+cHq9DeBOUr/yrGqt999ryfgQqr4jbUgw5341sVYqhtK0BmmmoX5ksDt5BuJlV9BRR8t6NDf6WIQv93yUHqLtdcN+usJ//PO3h1DJ+nYrwJ050X0M/xigw9ampU3ZtsWsI/FL4="
         file: qt/mptabs-${TRAVIS_BRANCH}.dmg
         name: ${TRAVIS_BRANCH}
         draft: false
