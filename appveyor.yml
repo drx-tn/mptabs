@@ -31,7 +31,7 @@ build_script:
 
     nmake clean
 
-    windeployqt --release --no-patchqt --no-quick-import --no-translations --no-compiler-runtime --no-webkit2 --no-angle --no-opengl-sw qt\release
+    windeployqt --release qt\release
 
     makensis /DVERSION=%appveyor_repo_tag_name% /DPLATFORM=%platform% mptabs.nsi
 

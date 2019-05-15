@@ -62,10 +62,6 @@ Vous pouvez ensuite déployer l'application avec:
 
     windeployqt qt\release
 
-Ou bien encore comme utilisé dans la configuration de notre environnement d'intégration continue:
-
-    windeployqt --release --no-patchqt --no-quick-import --no-translations --no-compiler-runtime --no-webkit2 --no-angle --no-opengl-sw qt\release
-
 > Pour compiler le programme d'installation sous Windows il vous faudra [NSIS](http://nsis.sourceforge.net).
 
 Pour compiler le programme d'installation il faudra tout d'abord nettoyer le dossier `qt/release` avec:
