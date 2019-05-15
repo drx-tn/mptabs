@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file alias="index.html">../docs/index.html</file>
 		<file alias="pdf.html">../docs/pdf.html</file>
+		<file alias="mptabs.png">../docs/mptabs.png</file>
 		<file alias="uikit/dist/css/uikit.min.css">../docs/uikit/dist/css/uikit.min.css</file>
 		<file alias="uikit/dist/js/uikit.min.js">../docs/uikit/dist/js/uikit.min.js</file>
 		<file alias="uikit/dist/js/uikit-icons.min.js">../docs/uikit/dist/js/uikit-icons.min.js</file>
