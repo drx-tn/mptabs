@@ -1,10 +1,12 @@
 #include <QApplication>
 #include <QWebEngineView>
 #include <QDesktopWidget>
+#include <QtWidgets>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+	app.setWindowIcon(QIcon(":/mptabs.png"));
 	QWebEngineView *view = new QWebEngineView();
 	view->load(QUrl("qrc:/index.html"));
 	view->setWindowTitle("MPTabs");
