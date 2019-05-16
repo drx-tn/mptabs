@@ -179,3 +179,14 @@
 /gradle/wrapper/*
 !/gradle/wrapper/gradle-wrapper.properties
 !/gradle/wrapper/gradle-wrapper.jar
+!/debian
+!/git2dch
+/debian/*
+!/debian/changelog
+!/debian/compat
+!/debian/control
+!/debian/copyright
+!/debian/rules
+!/debian/source
+/debian/source/*
+!/debian/source/format
