@@ -60,8 +60,8 @@ task mpfiles(type: Copy) {
     into 'src/main/assets/inc'
 }
 task fetch(type: Copy) {
-    from '../docs/fetch'
-    into 'src/main/assets/fetch'
+    from '../docs/fetch/fetch.js'
+    into 'src/main/assets/fetch/'
 }
 preBuild.dependsOn(html)
 preBuild.dependsOn(uikitCss)
