@@ -1,4 +1,5 @@
-# MPTabs [![Licence](https://img.shields.io/github/license/drx-tn/mptabs.svg)](LICENSE) [![Etat du build sur Travis](https://travis-ci.org/drx-tn/mptabs.svg?branch=master)](https://travis-ci.org/drx-tn/mptabs) [![Etat du build sur Appveyor](https://ci.appveyor.com/api/projects/status/usg9qx1bejcilxce/branch/master?svg=true)](https://ci.appveyor.com/project/drxtun61291/mptabs/branch/master) [![Dernière version](https://img.shields.io/github/release/drx-tn/mptabs.svg)](https://github.com/drx-tn/mptabs/releases/latest) [![Nombre de téléchargements](https://img.shields.io/github/downloads/drx-tn/mptabs/total.svg)](https://github.com/drx-tn/mptabs/releases)
+# MPTabs [![Launchpad.net !](http://media.launchpad.net/lp-badge-kit/launchpad-badge-w120px.png)](https://launchpad.net/mptabs)
+[![Licence](https://img.shields.io/github/license/drx-tn/mptabs.svg)](LICENSE) [![Etat du build sur Travis](https://travis-ci.org/drx-tn/mptabs.svg?branch=master)](https://travis-ci.org/drx-tn/mptabs) [![Etat du build sur Appveyor](https://ci.appveyor.com/api/projects/status/usg9qx1bejcilxce/branch/master?svg=true)](https://ci.appveyor.com/project/drxtun61291/mptabs/branch/master) [![Dernière version](https://img.shields.io/github/release/drx-tn/mptabs.svg)](https://github.com/drx-tn/mptabs/releases/latest) [![Nombre de téléchargements](https://img.shields.io/github/downloads/drx-tn/mptabs/total.svg)](https://github.com/drx-tn/mptabs/releases)
 
 <p align="center"><img src="mptabs.svg" width="300"/></p>
 
@@ -16,7 +17,13 @@ La version en ligne est disponible sur: http://mptabs.drx.tn
 ## Installation
 Vous trouverez des programmes d'installation en téléchargement pour Windows 32 bits (`mptabs*_x86.exe`) et 64 bits (`mptabs*_x64.exe`), Mac Os et Android sur la page [releases](https://github.com/drx-tn/mptabs/releases).
 
-Pour linux vous devez pour le moment compiler l'application par vous même.
+Sous Ubuntu Bionic, Cosmic, Disco et Eoan vous pouvez installer l'application en ajoutant le ppa [ppa:drx.tn/ppa](https://launchpad.net/~drx.tn/+archive/ubuntu/ppa) à vos sources de mises-à-jour puis en l'installant avec ces commandes:
+
+    sudo add-apt-repository -y ppa:drx.tn/ppa
+    sudo apt-get update
+    sudo apt-get install -y mptabs
+
+Pour les autres versions de linux vous devez compiler l'application par vous même.
 
 ## Compilation à partir de la source
 > Pour compiler l'application pour Windows/Linux/Mac vous aurez besoin de [Qt](https://www.qt.io/download-qt-installer) et pour Android [Android Studio ou les outils en ligne de commande](https://developer.android.com/studio/#downloads).
