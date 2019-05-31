@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: mptabs
 Upstream-Contact: DrX@TN <39054543+drx-tn@users.noreply.github.com>
-Source: https://github.com/drxtun/mptabs
+Source: https://github.com/drx-tn/mptabs
 
 Files: *
 Copyright: 2018 DrX@TN.
