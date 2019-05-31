@@ -13,7 +13,6 @@ matrix:
           - android-28
           - android-23
           - extra-android-m2repository
-          - yes | sudo sdkmanager --licenses
       script:
         - jdk_switcher use oraclejdk8
         - ./gradlew assembleRelease
