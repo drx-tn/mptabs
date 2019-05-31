@@ -19,20 +19,20 @@ Page instfiles
 UninstPage uninstConfirm
 UninstPage instfiles
 UninstallCaption "MPTabs"
-UninstallButtonText "Désinstaller"
-UninstallSubCaption 0 " [Désinstallation]"
+UninstallButtonText "Dï¿½sinstaller"
+UninstallSubCaption 0 " [Dï¿½sinstallation]"
 UninstallSubCaption 1 " [Nettoyage]"
-UninstallSubCaption 2 " [Désinstallation terminée]"
-UninstallText "Voulez-vous vraiment désinstaller MPTabs?" "Désinstallation: "
+UninstallSubCaption 2 " [Dï¿½sinstallation terminï¿½e]"
+UninstallText "Voulez-vous vraiment dï¿½sinstaller MPTabs?" "Dï¿½sinstallation: "
 AllowRootDirInstall false
 # ManifestDPIAware true
-MiscButtonText "Précédent" "Suivant" "Annueler" "Fermer"
+MiscButtonText "Prï¿½cï¿½dent" "Suivant" "Annueler" "Fermer"
 BGFont "Tahoma" height 12
 Caption "MPTabs"
 BrandingText "MPTabs"
 CompletedText "All is done."
 DetailsButtonText "Details"
-FileErrorText "Erreur lors de l'écriture de $\r$\n$0$\r$\nVeuillez réessayer.$\r$\nSi le problème persiste veuillez le rapporter."
+FileErrorText "Erreur lors de l'ï¿½criture de $\r$\n$0$\r$\nVeuillez rï¿½essayer.$\r$\nSi le problï¿½me persiste veuillez le rapporter."
 InstallColors 00ff00 000000
 InstallButtonText "Installer"
 InstProgressFlags colored
@@ -42,34 +42,34 @@ VIAddVersionKey /LANG=${LANG_FRENCH} "ProductName" "MPTabs"
 VIAddVersionKey /LANG=${LANG_FRENCH} "CompanyName" "DrX@TN"
 VIAddVersionKey /LANG=${LANG_FRENCH} "FileDescription" "Application tableaux des maladies professionnelles en Tunisie"
 VIAddVersionKey /LANG=${LANG_FRENCH} "LegalCopyright" "No Copyright"
-VIAddVersionKey /LANG=${LANG_FRENCH} "FileVersion" "0.1.1"
-VIAddVersionKey /LANG=${LANG_FRENCH} "ProductVersion" "0.1.1"
-VIProductVersion "0.1.1.1"
+VIAddVersionKey /LANG=${LANG_FRENCH} "FileVersion" "0.1.2"
+VIAddVersionKey /LANG=${LANG_FRENCH} "ProductVersion" "0.1.2"
+VIProductVersion "0.1.2.1"
 Function .onInit
-	# Pour vérifier si l'installateur n'est pas déjà en cours d'exécution.
+	# Pour vï¿½rifier si l'installateur n'est pas dï¿½jï¿½ en cours d'exï¿½cution.
 	# http://nsis.sourceforge.net/Allow_only_one_installer_instance
 	System::Call 'kernel32::CreateMutex(i 0, i 0, t "MPTabsInstallation") ?e'
 	Pop $R0
 	StrCmp $R0 0 +3
-		MessageBox MB_OK "Le programme d'installation est déjà en cours d'exécution."
+		MessageBox MB_OK "Le programme d'installation est dï¿½jï¿½ en cours d'exï¿½cution."
 	Abort
 	MessageBox MB_YESNO "Voulez-vous installer MPTabs l'application tableaux des maladies professionnelles en Tunisie sur votre ordinateur?" IDYES gogogo
 	Abort
 	gogogo:
 FunctionEnd
 Function .onInstSuccess
-	MessageBox MB_YESNO "L'installation s'est terminée avec succés. Voulez-vous exécuter MPTabs maintenant?" IDNO noexec
+	MessageBox MB_YESNO "L'installation s'est terminï¿½e avec succï¿½s. Voulez-vous exï¿½cuter MPTabs maintenant?" IDNO noexec
 	Exec $INSTDIR\mptabs.exe
 	noexec:
 FunctionEnd
 Function .onInstFailed
-	MessageBox MB_OK "L'installation a échoué."
+	MessageBox MB_OK "L'installation a ï¿½chouï¿½."
 FunctionEnd
 Function un.onUninstSuccess
-	MessageBox MB_OK "L'application MPTabs a été désinstallée avec succés."
+	MessageBox MB_OK "L'application MPTabs a ï¿½tï¿½ dï¿½sinstallï¿½e avec succï¿½s."
 FunctionEnd
 Function un.onUninstFailed
-	MessageBox MB_OK "La désinstallation de MPTabs a échoué."
+	MessageBox MB_OK "La dï¿½sinstallation de MPTabs a ï¿½chouï¿½."
 FunctionEnd
 Section "Install"
 	SectionIn RO
@@ -85,7 +85,7 @@ Section "Install"
 	CreateDirectory "$SMPROGRAMS\MPTabs\"
 	CreateShortCut "$SMPROGRAMS\MPTabs\MPTabs.lnk" "$INSTDIR\mptabs.exe"
 	CreateShortCut "$DESKTOP\MPTabs.lnk" "$INSTDIR\mptabs.exe"
-	CreateShortCut "$SMPROGRAMS\MPTabs\Désinstaller.lnk" "$INSTDIR\uninstall.exe"
+	CreateShortCut "$SMPROGRAMS\MPTabs\Dï¿½sinstaller.lnk" "$INSTDIR\uninstall.exe"
 SectionEnd
 Section "Uninstall"
 	SetAutoClose true

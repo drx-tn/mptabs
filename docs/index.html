@@ -373,12 +373,30 @@
 			</ul>
 		</div>
 	</div>
+	<div id="about" uk-modal>
+    	<div class="uk-modal-dialog">
+			<button class="uk-modal-close-default" type="button" uk-close></button>
+			<div class="uk-modal-header">
+				<h2 class="uk-modal-title">MPTabs</h2>
+			</div>
+			<div class="uk-modal-body" uk-overflow-auto>
+				<p class="uk-text-center"><img data-src="mptabs.png" width="128" height="128" alt="MPTabs" uk-img></p>
+				<p>MPTabs est une application qui permet de consulter rapidement les tableaux des maladies professionnelles en Tunisie. Elle s'inspire et utilise des documents publiés par l'Institut de Santé et de Sécurité au Travail.</p>
+				<p>Pour en savoir plus sur l'application visitez le site <em>drx.tn</em>.</p>
+			</div>
+			<div class="uk-modal-footer">
+				<p class="uk-text-right"><button class="uk-button uk-button-primary uk-modal-close" type="button">Fermer</button></p>
+			</div>
+    	</div>
+	</div>
 	<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 		<div class="uk-navbar-right">
 			<div class="uk-navbar-item">
 				<form action="javascript:void(0)">
 					<a class="uk-button uk-button-default" href="#filter" id="switch" uk-toggle><span
 							uk-icon="icon: cog"></span> Filtrer</a>
+					<a class="uk-button uk-button-default" href="#about" id="about" uk-toggle><span
+							uk-icon="icon: info"></span> A propos</a>
 				</form>
 			</div>
 		</div>
