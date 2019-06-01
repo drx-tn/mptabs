@@ -30,7 +30,7 @@ matrix:
       install: true
       before_deploy:
         - ${ANDROID_HOME}/build-tools/28.0.3/zipalign -v -p 4 android/build/outputs/apk/release/mptabs-${TRAVIS_BRANCH}-release-unsigned.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
-        - keytool -genkey -alias mptabs -keyalg RSA -keysize 2048 -keystore keystore.jks -dname "CN=Dr X, OU=MPTabs, O=DrX.tn, L=Sousse, S=Sousse, C=TN" -storepass ${BIG_SECRET} -keypass ${BIG_SECRET}
+        - keytool -genkey -alias mptabs -keyalg RSA -keysize 2048 -keystore keystore.jks -dname "CN=Dr X, OU=MPTabs, O=DrX.tn, L=Sousse, S=Sousse, C=TN" -storepass ${BIG_SECRET} -keypass ${BIG_SECRET} -validity 365000
         - ${ANDROID_HOME}/build-tools/28.0.3/apksigner sign --ks keystore.jks --ks-pass pass:${BIG_SECRET} --ks-key-alias mptabs --key-pass pass:${BIG_SECRET} --out mptabs-${TRAVIS_BRANCH}.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
       deploy:
         provider: releases
