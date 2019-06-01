@@ -1,7 +1,7 @@
 matrix:
   include:
     - language: android
-      dist: xenial
+      dist: trusty
       jdk: oraclejdk8
       sudo: false
       addons:
