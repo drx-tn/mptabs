@@ -3,6 +3,8 @@
 
 <p align="center"><img src="mptabs.svg" width="300"/></p>
 
+<p align="center"><a href='https://play.google.com/store/apps/details?id=tn.drx.mptabs'><img alt='Disponible sur Google Play' width="200" src='https://play.google.com/intl/en_us/badges/images/generic/fr_badge_web_generic.png'/></a></p>
+
 ## A propos
 Application tableaux des maladies professionnelles en Tunisie. Application gratuite avec code source ouvert (voir [licence GPL-3](LICENSE)).
 
