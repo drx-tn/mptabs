@@ -9,6 +9,7 @@
 		<file alias="pdfjs-dist/build/pdf.min.js">../docs/pdfjs-dist/build/pdf.min.js</file>
 		<file alias="pdfjs-dist/build/pdf.worker.min.js">../docs/pdfjs-dist/build/pdf.worker.min.js</file>
 		<file alias="fetch/fetch.js">../docs/fetch/fetch.js</file>
+		<file alias="inc/data.json">../docs/inc/data.json</file>
 		<file alias="inc/tab1.pdf">../docs/inc/tab1.pdf</file>
 		<file alias="inc/tab2.pdf">../docs/inc/tab2.pdf</file>
 		<file alias="inc/tab3.pdf">../docs/inc/tab3.pdf</file>

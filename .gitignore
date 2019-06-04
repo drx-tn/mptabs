@@ -14,6 +14,7 @@
 !/docs/pdf.html
 !/docs/inc
 /docs/inc/*
+!/docs/inc/data.json
 !/docs/inc/tab1.pdf
 !/docs/inc/tab2.pdf
 !/docs/inc/tab3.pdf

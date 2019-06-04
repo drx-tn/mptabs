@@ -1,6 +1,6 @@
 def versionMajor = 0
 def versionMinor = 1
-def versionBase = 2
+def versionBase = 3
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'

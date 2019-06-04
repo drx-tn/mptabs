@@ -42,9 +42,9 @@ VIAddVersionKey /LANG=${LANG_FRENCH} "ProductName" "MPTabs"
 VIAddVersionKey /LANG=${LANG_FRENCH} "CompanyName" "DrX@TN"
 VIAddVersionKey /LANG=${LANG_FRENCH} "FileDescription" "Application tableaux des maladies professionnelles en Tunisie"
 VIAddVersionKey /LANG=${LANG_FRENCH} "LegalCopyright" "No Copyright"
-VIAddVersionKey /LANG=${LANG_FRENCH} "FileVersion" "0.1.2"
-VIAddVersionKey /LANG=${LANG_FRENCH} "ProductVersion" "0.1.2"
-VIProductVersion "0.1.2.1"
+VIAddVersionKey /LANG=${LANG_FRENCH} "FileVersion" "${VERSION}"
+VIAddVersionKey /LANG=${LANG_FRENCH} "ProductVersion" "${VERSION}"
+VIProductVersion "${VERSION}.1"
 Function .onInit
 	# Pour v�rifier si l'installateur n'est pas d�j� en cours d'ex�cution.
 	# http://nsis.sourceforge.net/Allow_only_one_installer_instance

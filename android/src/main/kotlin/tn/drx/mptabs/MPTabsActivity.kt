@@ -6,27 +6,30 @@ import android.webkit.WebViewClient
 import android.webkit.WebChromeClient
 
 class MPTabsActivity : AppCompatActivity() {
+	private var mptabsView: WebView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mptabsView = WebView(this)
+        mptabsView = WebView(this)
         setContentView(mptabsView)
-        mptabsView.setWebChromeClient(WebChromeClient())
-        mptabsView.getSettings().setJavaScriptEnabled(true)
-        mptabsView.getSettings().setAllowFileAccessFromFileURLs(true)
-        /*
-        mptabsView.settings.javaScriptEnabled = true
-        mptabsView.settings.allowFileAccessFromFileURLs = true
-        mptabsView.settings.allowUniversalAccessFromFileURLs = true
-        mptabsView.settings.builtInZoomControls = true
-        mptabsView.webChromeClient = WebChromeClient()
-        */ mptabsView.setWebViewClient(object : WebViewClient() {
+        mptabsView!!.setWebChromeClient(WebChromeClient())
+        mptabsView!!.getSettings().setJavaScriptEnabled(true)
+        mptabsView!!.getSettings().setAllowFileAccessFromFileURLs(true)
+        mptabsView!!.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                return false// if (url.startsWith("file://")) {
-                    // magic
-                  //  true
-                // } else false
+                return false
             }
         })
-        mptabsView.loadUrl("file:///android_asset/index.html")
+		if (savedInstanceState == null) {
+            mptabsView!!.loadUrl("file:///android_asset/index.html")
+		}
+    }
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState);
+        mptabsView!!.saveState(outState);
+    }
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mptabsView!!.restoreState(savedInstanceState);
     }
 }
