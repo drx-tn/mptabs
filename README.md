@@ -101,8 +101,10 @@ A partir d'Android Studio ou en ligne de commande avec `gradlew`:
 
 * Sous windows:
 
-      gradlew.bat assembleRelease
+      gradlew.bat clean assembleDebug
 
 * Sous Linux ou Mac:
 
-      ./gradlew assembleRelease
+      ./gradlew clean assembleDebug
+
+> Pour compiler l'application finale et la signer vous devez créer votre propre `keystore` et votre propre clé et adapter le fichier `android/build.gradle`.

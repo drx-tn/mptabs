@@ -18,7 +18,7 @@ matrix:
           - extra-android-m2repository
       script:
         - jdk_switcher use oraclejdk8
-        - ./gradlew assembleRelease
+        - ./gradlew clean build assembleRelease
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
         - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -28,15 +28,13 @@ matrix:
           - $HOME/.gradle/wrapper/
           - $HOME/.android/build-cache
       install: true
-      before_deploy:
-        - ${ANDROID_HOME}/build-tools/28.0.3/zipalign -v -p 4 android/build/outputs/apk/release/mptabs-${TRAVIS_BRANCH}-release-unsigned.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
-        - keytool -genkey -alias mptabs -keyalg RSA -keysize 2048 -keystore keystore.jks -dname "CN=Dr X, OU=MPTabs, O=DrX.tn, L=Sousse, S=Sousse, C=TN" -storepass ${BIG_SECRET} -keypass ${BIG_SECRET} -validity 365000
-        - ${ANDROID_HOME}/build-tools/28.0.3/apksigner sign --ks keystore.jks --ks-pass pass:${BIG_SECRET} --ks-key-alias mptabs --key-pass pass:${BIG_SECRET} --out mptabs-${TRAVIS_BRANCH}.apk mptabs-${TRAVIS_BRANCH}-release-unsigned-aligned.apk
+      before_install:
+        - openssl aes-256-cbc -md md5 -d -k $SECRET_FILE -in release.jks.enc -out release.jks
       deploy:
         provider: releases
         api_key:
           secure: "RexfIIpI6kyvET5xDoTcll0Ce7jti63QcB1B3tVPtkkqbBpHzhb4n1eLapI/okIb6okn9Hsko5hy2hX5rqGIA3p5T/zUKTv7AwePblHmQr3LxOn8jnfPynIzJTxCd1hxuPLk/wLSwqSSoeBYAQuQNTP3oyQ5nE0LQ818V/k/PQ0j3aXCrkV6GdpgWqf16YAFIYpa2o8nQwVt3XlmLWq1OZtd3U3xH3nh8rK7atCcnV+WE52XBJyeUB9DMugJR0L+jq2A74kgA8DQ2RkKakBVGtfUdf7nXuzcCrtPck00ZdTCbgAe9Ah+KdPoLCHJerDuMOhky1H0KiMYIg00758TrrcDX9kmGugtA4o6wJjqPJPkr36fIRFPNiGhTCmFj1ZgImM77vwjh7cpdXxem6Y6suSQ5jKf6Y8zHA0skWBtszUffgPBwyeqBATXktzgy74NvtTdSxdFttm3xkSpTD36Zt5xLfqeyDqgW34gHUvX9USVG6pRizWgbTqG2KSRl//l9Qlw4Ab1KzRgN2/LEAlIPq3LQ4LZ45tOYDZbC+cHq9DeBOUr/yrGqt999ryfgQqr4jbUgw5341sVYqhtK0BmmmoX5ksDt5BuJlV9BRR8t6NDf6WIQv93yUHqLtdcN+usJ//PO3h1DJ+nYrwJ050X0M/xigw9ampU3ZtsWsI/FL4="
-        file: mptabs-${TRAVIS_BRANCH}.apk
+        file: android/build/outputs/apk/release/mptabs-${TRAVIS_BRANCH}-release.apk
         name: ${TRAVIS_BRANCH}
         draft: false
         prerelease: false
