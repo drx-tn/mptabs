@@ -1,6 +1,6 @@
 def versionMajor = 0
 def versionMinor = 1
-def versionBase = 4
+def versionBase = 5
 
 final travisKeystorePassword = System.getenv('KEYSTORE_PASSWORD') ?: ''
 final travisKeyAlias = System.getenv('KEY_ALIAS') ?: ''
@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
 task html(type: Copy) {
-    from '../docs/index.html', '../docs/pdf.html', '../docs/mptabs.png'
+    from '../docs/index.html', '../docs/pdf.html', '../docs/mptabs.png', '../docs/profile.png'
     into 'src/main/assets/'
 }
 task uikitCss(type: Copy) {
