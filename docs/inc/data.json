@@ -88,7 +88,8 @@
 		{ "tabs": "#tab72", "manif": "Anguillulose"},
 		{ "tabs": "#tab73", "manif": "Ankylostomose"},
 		{ "tabs": "#tab74", "manif": "Mycoses cutanées, périonyxis et onyxis"},
-		{ "tabs": "#tab75", "manif": "Infections hospitalières : Staph, Pseudomonas, entérobactéries, Shigella, Pneumocoques, Streptocoques, Meningocoques, gonocoques, VIH, Fièvre typhoïde et paratyphoïde, Choléra, Syphilis, Amibiase"}
+		{ "tabs": "#tab75", "manif": "Infections hospitalières : Staph, Pseudomonas, entérobactéries, Shigella, Pneumocoques, Streptocoques, Meningocoques, gonocoques, VIH, Fièvre typhoïde et paratyphoïde, Choléra, Syphilis, Amibiase"},
+		{ "tabs": "#tab86", "manif": "Affections liées au SARS-COV2"}
 	]},
 	{ "group": "Néphrologie", "items": [
 		{ "tabs": "#tab1", "manif": "Insuffisance Rénale"},
@@ -282,6 +283,7 @@
 	{ "id": "tab82", "name": "Tableau n°82 : Les Gestes et les postures" },
 	{ "id": "tab83", "name": "Tableau n°83 : Le Travail à haute température" },
 	{ "id": "tab84", "name": "Tableau n°84 : L’Oxyde de Carbone" },
-	{ "id": "tab85", "name": "Tableau n°85 : Les brouillards d'acides minéraux forts comportant l'acide sulfurique" }
+	{ "id": "tab85", "name": "Tableau n°85 : Les brouillards d'acides minéraux forts comportant l'acide sulfurique" },
+	{ "id": "tab86", "name": "Tableau n°86 : Affections liées au SARS-COV2" }
 ]
 }
