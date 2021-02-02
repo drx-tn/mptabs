@@ -10,11 +10,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 android {
-    compileSdkVersion 28
-	buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+	buildToolsVersion "29.0.3"
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         applicationId "tn.drx.mptabs"
         versionCode versionMajor * 10000 + versionMinor * 100 + versionBase
         versionName "${versionMajor}.${versionMinor}.${versionBase}"
