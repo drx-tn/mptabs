@@ -1,6 +1,6 @@
 def versionMajor = 0
 def versionMinor = 1
-def versionBase = 5
+def versionBase = 6
 
 final travisKeystorePassword = System.getenv('KEYSTORE_PASSWORD') ?: ''
 final travisKeyAlias = System.getenv('KEY_ALIAS') ?: ''
