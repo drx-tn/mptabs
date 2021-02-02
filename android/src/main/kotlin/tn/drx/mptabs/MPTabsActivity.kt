@@ -1,5 +1,5 @@
 package tn.drx.mptabs
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -24,11 +24,11 @@ class MPTabsActivity : AppCompatActivity() {
             mptabsView!!.loadUrl("file:///android_asset/index.html")
 		}
     }
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState);
         mptabsView!!.saveState(outState);
     }
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState);
         mptabsView!!.restoreState(savedInstanceState);
     }
