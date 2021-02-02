@@ -18,6 +18,7 @@ matrix:
           - extra-android-m2repository
       script:
         - jdk_switcher use oraclejdk8
+        - yes | sdkmanager --licenses
         - ./gradlew clean build assembleRelease
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
