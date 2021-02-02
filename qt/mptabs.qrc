@@ -97,5 +97,6 @@
 		<file alias="inc/tab83.pdf">../docs/inc/tab83.pdf</file>
 		<file alias="inc/tab84.pdf">../docs/inc/tab84.pdf</file>
 		<file alias="inc/tab85.pdf">../docs/inc/tab85.pdf</file>
+		<file alias="inc/tab86.pdf">../docs/inc/tab86.pdf</file>
     </qresource>
 </RCC>
