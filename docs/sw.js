@@ -122,6 +122,7 @@ self.addEventListener("install", (event) => {
           "/mptabs/pdf.html?file=inc/tab85.pdf",
           "/mptabs/pdf.html?file=inc/tab86.pdf",
           "/mptabs/pdfjs-dist/build/pdf.min.js",
+          "/mptabs/pdfjs-dist/build/pdf.worker.min.js",
           "/mptabs/inc/data.json",
           "/mptabs/inc/tab1.pdf",
           "/mptabs/inc/tab2.pdf",
