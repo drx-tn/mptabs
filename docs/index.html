@@ -46,6 +46,7 @@
 			</div>
     	</div>
 	</div>
+	<!--
 	<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 		<div class="uk-navbar-right">
 			<div class="uk-navbar-item">
@@ -62,6 +63,28 @@
 			</div>
 		</div>
 	</nav>
+	-->
+<!---->
+<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+    <div class="nav-overlay uk-navbar-right">
+	</div>
+	<div class="nav-overlay uk-navbar-right uk-flex-1" hidden>
+		<div class="uk-navbar-item uk-width-expand">
+			<form class="uk-search uk-search-navbar uk-width-1-1" action="javascript:void(0)">
+				<input id="searchbox" class="uk-search-input" type="search" placeholder="Rechercher" aria-label="Search" autofocus>
+			</form>
+		</div>
+		<a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+	</div>
+	<div class="nav-overlay uk-navbar-right">
+		<a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+		<form action="javascript:void(0)">
+			<a class="uk-button uk-button-default" href="#filter" id="switch" uk-toggle><span uk-icon="icon: cog"></span> Filtrer</a>
+			<a class="uk-button uk-button-default" href="#about" id="about" uk-toggle><span uk-icon="icon: info"></span> A propos</a>
+		</form>
+    </div>
+</nav>
+<!---->
 
 	<div class="uk-container uk-container-center uk-width-1-2@s">
 		<ul uk-nav id="mps"></ul>
