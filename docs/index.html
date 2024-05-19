@@ -73,9 +73,9 @@
 	<script src="uikit/dist/js/uikit-icons.min.js"></script>
 	<script src="Fuse/dist/fuse.basic.min.js"></script>
 	<script>
-	window.addEventListener('load', function () {
-	if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js', {scope: '/mptabs/'});
-	}
+		window.addEventListener('load', function () {
+			if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js', {scope: '/mptabs/'});
+		});
 		var filterState = false;
 		(function () {
 			fetch("inc/data.json")
