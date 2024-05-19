@@ -1,2 +1,0 @@
-SUBDIRS += qt
-TEMPLATE = subdirs

@@ -1,0 +1,29 @@
+{
+    "short_name": "MPTabs",
+    "name": "MPTabs",
+    "icons": [
+      {
+        "src": "img/mptabs120x120.png",
+        "type": "image/png",
+        "sizes": "120x120"
+      }, {
+        "src": "img/mptabs180x180.png",
+        "type": "image/png",
+        "sizes": "180x180"
+      }, {
+        "src": "img/mptabs192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }, {
+        "src": "img/mptabs512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/mptabs/index.html",
+    "background_color": "#f5f5f5",
+    "display": "standalone",
+    "scope": "/mptabs/",
+    "theme_color": "#f5f5f5",
+    "description": "Application tableaux des maladies professionnelles en Tunisie"
+}

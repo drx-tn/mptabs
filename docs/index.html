@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Tableaux des maladies professionnelles en Tunisie</title>
 	<link rel="icon" type="image/png" href="mptabs.png" />
+	<link rel="manifest" href="manifest.webmanifest">
 	<link rel="stylesheet" href="uikit/dist/css/uikit.min.css" />
 </head>
 <body>
@@ -48,6 +49,12 @@
 	<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 		<div class="uk-navbar-right">
 			<div class="uk-navbar-item">
+			            <a class="uk-navbar-toggle" href uk-search-icon></a>
+            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                <form class="uk-search uk-search-navbar uk-width-1-1" action="javascript:void(0)">
+                    <input id="searchbox" class="uk-search-input" type="search" placeholder="Rechercher" aria-label="Search" autofocus>
+                </form>
+            </div>
 				<form action="javascript:void(0)">
 					<a class="uk-button uk-button-default" href="#filter" id="switch" uk-toggle><span uk-icon="icon: cog"></span> Filtrer</a>
 					<a class="uk-button uk-button-default" href="#about" id="about" uk-toggle><span uk-icon="icon: info"></span> A propos</a>
@@ -55,16 +62,14 @@
 			</div>
 		</div>
 	</nav>
+
 	<div class="uk-container uk-container-center uk-width-1-2@s">
 		<ul uk-nav id="mps"></ul>
 	</div>
 	</br>
 	<script src="uikit/dist/js/uikit.min.js"></script>
 	<script src="uikit/dist/js/uikit-icons.min.js"></script>
-	<script>
-		window.fetch = null;
-	</script>
-	<script src="fetch/fetch.js"></script>
+	<script src="Fuse/dist/fuse.basic.min.js"></script>
 	<script>
 		var filterState = false;
 		(function () {
@@ -96,6 +101,29 @@
 				}
 				document.getElementById("allmp").addEventListener("click", function () {
 					[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) { mptab.style.display = ""; });
+				});
+				const options = {
+					includeScore: false, keys: ['fulltext'], threshold : 0, isCaseSensitive: false, minMatchCharLength: 2, ignoreLocation: true,
+				}
+				const fuse = new Fuse(data.mps, options)
+				document.getElementById("searchbox").addEventListener('input', function () {
+					(function(terms) {
+						if (terms.length > 0) {
+							let res = fuse.search(terms);
+							if (res.length > 0) {
+								[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
+									mptab.style.display = "none";
+								});
+								for (let i = 0; i < res.length; i++) {
+									document.getElementById(res[i].item.id).style.display = "";
+								}
+							}
+						} else {
+							[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
+								mptab.style.display = "";
+							});
+						}
+					})(this.value);
 				});
 				Array.from(document.getElementsByClassName("mptabs")).forEach(function (e) {
 					e.addEventListener("click", function () {

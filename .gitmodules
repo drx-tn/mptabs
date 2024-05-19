@@ -4,6 +4,6 @@
 [submodule "docs/pdfjs-dist"]
 	path = docs/pdfjs-dist
 	url = https://github.com/mozilla/pdfjs-dist
-[submodule "docs/fetch"]
-	path = docs/fetch
-	url = https://github.com/github/fetch
+[submodule "docs/Fuse"]
+	path = docs/Fuse
+	url = https://github.com/krisk/Fuse

@@ -1,9 +1,0 @@
-// D'après: https://msdn.microsoft.com/en-us/library/ms997538.aspx
-// et https://msdn.microsoft.com/en-us/library/mt186350.aspx
-// inkscape -z -e mptabs.png -w 1024 -h 1024 mptabs.svg
-// convert mptabs.png +dither -colors 16 -resize 16x16 mptabs16x16.ico
-
-IDI_ICON1	PNG		DISCARDABLE	"mptabs256x256.png"
-IDI_ICON2	ICON	DISCARDABLE	"mptabs48x48.ico"
-IDI_ICON3	ICON	DISCARDABLE	"mptabs32x32.ico"
-IDI_ICON4	ICON	DISCARDABLE	"mptabs16x16.ico"
