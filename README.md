@@ -24,7 +24,7 @@ Clonez ce dépôt et à dirigez-vous à l'intérieur du dossier `mptabs`:
 
 L'application a quelques dépendances supplémentaires qui ont été intégrées sous forme de sous-modules et qui sont:
 * Le framework [UIkit](https://getuikit.com/),
-* La librairie Fuse.JS [Fuse.JS](https://www.fusejs.io/)
+* La librairie [Fuse.JS](https://www.fusejs.io/)
 * Et [PDF.js](https://mozilla.github.io/pdf.js/)
 
 Il faudra donc les intégrer par la commande:
