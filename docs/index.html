@@ -130,7 +130,7 @@
 						}
 					})(this.value);
 				});
-				document.getElementById("togglesearch").addEventListener('click', function (){
+				document.getElementById("togglesearch").addEventListener('mousedown', function (){
 					document.getElementById("searchbox").value = "";
 					[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) { mptab.style.display = ""; });
 				});
