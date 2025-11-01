@@ -6,7 +6,8 @@
 	<title>Tableaux des maladies professionnelles en Tunisie</title>
 	<link rel="icon" type="image/png" href="mptabs.png" />
 	<link rel="manifest" href="manifest.webmanifest">
-	<link rel="stylesheet" href="uikit/dist/css/uikit.min.css" />
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
 </head>
 <body>
 	<div id="filter" uk-offcanvas="mode: slide; overlay: true; flip: true; esc-close: true; bg-close: true">
@@ -18,7 +19,7 @@
 		</div>
 	</div>
 	<div id="about" uk-modal>
-    	<div class="uk-modal-dialog">
+    	<div class="uk-modal-dialog uk-animation-shake">
 			<button class="uk-modal-close-default" type="button" uk-close></button>
 			<div class="uk-modal-header">
 				<h2 class="uk-modal-title">MPTabs</h2>
@@ -32,12 +33,12 @@
     				<li>
 						<img src="mptabs.png" class="uk-align-left uk-margin-remove-adjacent" width="96" height="96" alt="MPTabs">
 						<p>MPTabs est une application qui permet de consulter rapidement les tableaux des maladies professionnelles en Tunisie. Elle s'inspire et utilise des documents publiés par l'Institut de Santé et de Sécurité au Travail.</p>
-						<p>Plus d'infos sur: <em>drx.tn</em></p>
+						<p>Plus d'infos sur: <em><a href="http://drx.tn" target="_blank">drx.tn</a></em></p>
 					</li>
     				<li>
 						<img src="profile.png" class="uk-align-left uk-margin-remove-adjacent" width="96" height="145" alt="Dr. Nizar Ben Ltaief">
 						<p>MPTabs a été développée par moi, Dr. Nizar Ben Ltaief, médecin à plein temps au Groupement de Médecine du Travail du Gouvernorat de Sousse, développeur amateur et fervent défenseur du libre.</p>
-						<p>Pour me contacter: <em>contact@drx.tn</em></p>
+						<p>Pour me contacter: <em><a href="mailto:contact@drx.tn">contact@drx.tn</a></em></p>
 					</li>
 				</ul>
 			</div>
@@ -46,9 +47,7 @@
 			</div>
     	</div>
 	</div>
-	<nav class="uk-navbar-container uk-navbar-transparent uk-margin-left uk-margin-right" uk-navbar>
-		<div class="nav-overlay uk-navbar-right">
-		</div>
+	<nav class="uk-navbar-container uk-navbar-transparent uk-margin uk-margin-right" uk-navbar>
 		<div class="nav-overlay uk-navbar-right uk-flex-1" hidden>
 			<div class="uk-navbar-item uk-width-expand">
 				<form class="uk-search uk-search-navbar uk-width-1-1" action="javascript:void(0)">
@@ -58,20 +57,23 @@
 			<a id="togglesearch" class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
 		</div>
 		<div class="nav-overlay uk-navbar-right">
-			<a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
-			<form action="javascript:void(0)">
-				<a class="uk-button uk-button-default" href="#filter" id="switch" uk-toggle><span uk-icon="icon: cog"></span> Filtrer</a>
-				<a class="uk-button uk-button-default" href="#about" id="about" uk-toggle><span uk-icon="icon: info"></span></a>
-			</form>
+				<a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+				<ul class="uk-navbar-nav">
+            		<li><a href="#filter" id="switch" uk-toggle><span uk-icon="icon: cog"></span> Filtrer</a></li>
+        			<li><a href="#about" id="about" uk-toggle><span uk-icon="icon: info"></span> À propos</a></li>
+        		<ul>
 		</div>
 	</nav>
 	<div class="uk-container uk-container-center uk-width-1-2@s">
 		<ul uk-nav id="mps"></ul>
 	</div>
 	</br>
-	<script src="uikit/dist/js/uikit.min.js"></script>
-	<script src="uikit/dist/js/uikit-icons.min.js"></script>
-	<script src="Fuse/dist/fuse.basic.min.js"></script>
+	<!-- UIkit JS -->
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit-icons.min.js"></script>
+	<!-- FlexSearch JS -->
+	<script src="https://cdn.jsdelivr.net/gh/nextapps-de/flexsearch@0.7.31/dist/flexsearch.bundle.js"></script>
+	<!-- Main thing -->
 	<script>
 		window.addEventListener('load', function () {
 			if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js', {scope: '/mptabs/'});
@@ -101,34 +103,49 @@
 					mp = document.createElement("li");
 					mp.setAttribute("class","mptab");
 					mp.setAttribute("id", data.mps[i].id);
-					mp.innerHTML = '<div uk-lightbox><a data-type="iframe" href="pdf.html?file=inc/'+data.mps[i].id+'.pdf">'+data.mps[i].name+'</a></div>';
+					mp.innerHTML = '<div uk-lightbox><a data-type="iframe" href="inc/tab.html?i='+i+'">'+data.mps[i].name+'</a></div>';
 					mps.appendChild(mp);
 				}
 				document.getElementById("allmp").addEventListener("click", function () {
 					[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) { mptab.style.display = ""; });
 				});
-				const options = {
-					includeScore: false, keys: ['fulltext'], threshold : 0, isCaseSensitive: false, minMatchCharLength: 2, ignoreLocation: true,
-				}
-				const fuse = new Fuse(data.mps, options)
+				const index = new FlexSearch.Document({
+					document: {
+						id: "id",
+						index: ["fulltext"]
+					},
+					tokenize: "full"
+				});
+				data.mps.forEach(mp_item => {
+					index.add(mp_item);
+				});
 				document.getElementById("searchbox").addEventListener('input', function () {
-					(function(terms) {
-						if (terms.length > 0) {
-							let res = fuse.search(terms);
-							if (res.length > 0) {
-								[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
-									mptab.style.display = "none";
+					const terms = this.value;
+					if (terms.length > 1) {
+						const results = index.search(terms, { 
+							field: "fulltext",
+							limit: 87
+						});
+						[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
+							mptab.style.display = "none";
+						});
+						if (results.length > 0) {
+							const matchingIds = new Set();
+							results.forEach(resultSet => {
+								resultSet.result.forEach(id => {
+									matchingIds.add(id);
 								});
-								for (let i = 0; i < res.length; i++) {
-									document.getElementById(res[i].item.id).style.display = "";
-								}
-							}
-						} else {
-							[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
-								mptab.style.display = "";
+							});
+							matchingIds.forEach(id => {
+								const element = document.getElementById(id);
+								if (element) { element.style.display = ""; }
 							});
 						}
-					})(this.value);
+					} else {
+						[].forEach.call(document.querySelectorAll(".mptab"), function (mptab) {
+							mptab.style.display = "";
+						});
+					}
 				});
 				document.getElementById("togglesearch").addEventListener('mousedown', function (){
 					document.getElementById("searchbox").value = "";

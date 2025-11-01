@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPTabs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="action-buttons">
+    <button id="btnPrint" onclick="javascript:window.print();">Imprimer</button>
+</div>
+<div class="container" id="fulltext"></div>
+<script>
+window.addEventListener('load', () => {
+    params = new URLSearchParams(document.location.search);
+    i = params.get("i");
+    if (i) {
+        fetch('data.json')
+            .then(response => {
+                if (!response.ok) { throw new Error('Erreur réseau? (' + response.statusText)+')'; }
+                return response.json();
+            })
+            .then(data => { document.getElementById('fulltext').innerHTML += data.mps[i].fulltext; })
+            .catch(error => { console.error('Error lors du chargement du tableau: ', error); });
+        }
+});
+</script>
+</body>
+</html>
