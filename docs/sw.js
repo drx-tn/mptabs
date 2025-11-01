@@ -8,7 +8,7 @@ self.addEventListener('fetch', function(event) {
       else{
         return fetch(event.request)
         .then((res)=>{
-          return caches.open('mptabs-cache-v1')
+          return caches.open('mptabs-cache-v1-011125')
           .then((cache)=>{
             cache.put(event.request.url,res.clone());
             return res;
@@ -22,7 +22,7 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
-      .open("mptabs-cache-v1")
+      .open("mptabs-cache-v1-011125")
       .then((cache) =>
         cache.addAll([
           "/",
