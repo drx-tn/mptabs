@@ -7,10 +7,9 @@
 
 body {
     /* Use the base font size variable */
-    margin: 0;
-    padding: 20px;
     font-size: var(--font-size-base);
     font-family: Arial, sans-serif;
+    margin: 20px;
     background-color: #f9f9f9;
     color: #333;
 }
@@ -18,7 +17,7 @@ body {
     max-width: 1000px;
     margin: auto;
     background-color: #fff;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     overflow-x: auto; 
     -webkit-overflow-scrolling: touch;

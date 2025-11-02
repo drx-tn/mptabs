@@ -9,13 +9,16 @@
 	<!-- UIkit CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
 	<style>
+		.uk-lightbox {
+			pointer-events: none !important;
+		}
+		.uk-lightbox-items > *,
+		.uk-lightbox-iframe {
+			pointer-events: auto !important;
+		}
 		.uk-lightbox-items > * {
 			overflow: auto !important;
 			-webkit-overflow-scrolling: touch !important;
-			touch-action: pan-x pan-y;
-		}
-		.uk-lightbox-iframe {
-			touch-action: pan-x pan-y;
 		}
 	</style>
 </head>
