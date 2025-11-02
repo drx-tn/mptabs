@@ -10,8 +10,12 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
 	<style>
 		.uk-lightbox-items > * {
-			overflow-x: auto !important;
+			overflow: auto !important;
 			-webkit-overflow-scrolling: touch !important;
+			touch-action: pan-x pan-y;
+		}
+		.uk-lightbox-iframe {
+			touch-action: pan-x pan-y;
 		}
 	</style>
 </head>
