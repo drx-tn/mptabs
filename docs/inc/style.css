@@ -7,21 +7,21 @@
 
 body {
     /* Use the base font size variable */
+    margin: 0;
+    padding: 20px;
     font-size: var(--font-size-base);
     font-family: Arial, sans-serif;
-    margin: 20px;
     background-color: #f9f9f9;
     color: #333;
 }
 .container {
     max-width: 1000px;
-    display: inline-block;
-    min-width: 100%;
-    text-align: left;
     margin: auto;
     background-color: #fff;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
 }
 table {
     width: 100%;
