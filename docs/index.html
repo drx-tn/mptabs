@@ -10,6 +10,51 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
 </head>
 <body>
+<div uk-sticky="top">
+		<div id="install-banner" class="uk-alert-primary uk-padding-small uk-margin-remove" uk-alert hidden>
+			<div class="uk-flex uk-flex-middle uk-flex-center uk-text-center">
+				<!-- Icône -->
+				<div class="uk-margin-right">
+					<span uk-icon="icon: download; ratio: 1.5"></span>
+				</div>
+
+				<!-- Texte -->
+				<div class="uk-width-expand">
+					<span class="uk-text-bold uk-visible@s">MPTabs est installable !</span>
+					<span> Installez-la pour un accès rapide et hors ligne.</span>
+				</div>
+
+				<!-- Boutons -->
+				<div class="uk-margin-left uk-flex-nowrap">
+					<button id="install-button" class="uk-button uk-button-primary uk-button-small">Installer</button>
+					<a class="uk-button uk-button-default uk-button-small" href="#close-banner-modal" uk-toggle>Plus tard</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="close-banner-modal" uk-modal>
+		<div class="uk-modal-dialog" uk-overflow-auto>
+			<div class="uk-modal-header">
+				<h2 class="uk-modal-title">Rappel d'installation</h2>
+			</div>
+			<div class="uk-modal-body">
+				<p>Voulez-vous avoir un message de rappel pour l'installation?</p>
+				<div class="uk-form-controls uk-margin">
+					<label class="uk-margin-small-right"><input class="uk-radio" type="radio" name="reminder-option" value="next-time" checked> La prochaine fois</label>
+				</div>
+				<div class="uk-form-controls uk-margin">
+					<label><input class="uk-radio" type="radio" name="reminder-option" value="24h"> Dans 24 heures</label>
+				</div>
+				<div class="uk-form-controls">
+					<label><input class="uk-radio" type="radio" name="reminder-option" value="never"> Ne jamais rappeler</label>
+				</div>
+			</div>
+			<div class="uk-modal-footer uk-text-right">
+				<button class="uk-button uk-button-default uk-modal-close" type="button">Annuler</button>
+				<button class="uk-button uk-button-primary" id="confirm-reminder-choice" type="button">Valider</button>
+			</div>
+		</div>
+	</div>
 	<div id="filter" uk-offcanvas="mode: slide; overlay: true; flip: true; esc-close: true; bg-close: true">
 		<div class="uk-offcanvas-bar">
 			<button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -159,6 +204,55 @@
 				});
 			});
 		})();
+		let deferredPrompt;
+		const installBanner = document.getElementById('install-banner');
+		const installButton = document.getElementById('install-button');
+		document.getElementById('confirm-reminder-choice').addEventListener('click', () => {
+			const selectedOption = document.querySelector('input[name="reminder-option"]:checked');
+			
+			if (selectedOption) {
+				const choice = selectedOption.value;
+				switch (choice) {
+					case '24h':
+						localStorage.setItem('installBannerClosed', Date.now());
+						break;
+					case 'never':
+						localStorage.setItem('installBannerNever', 'true');
+						break;
+				}
+			}
+
+			installBanner.hidden = true;
+			UIkit.modal('#close-banner-modal').hide();
+		});
+		window.addEventListener('beforeinstallprompt', (e) => {
+			e.preventDefault();
+			deferredPrompt = e;
+			if (localStorage.getItem('installBannerNever') === 'true') {
+				return;
+			}
+			const lastClosed = localStorage.getItem('installBannerClosed');
+			if (lastClosed && (Date.now() - lastClosed < 24 * 60 * 60 * 1000)) {
+				return;
+			}
+			installBanner.hidden = false;
+		});
+		installButton.addEventListener('click', async () => {
+			if (deferredPrompt) {
+				deferredPrompt.prompt();
+				const { outcome } = await deferredPrompt.userChoice;
+				deferredPrompt = null;
+				installBanner.hidden = true;
+			}
+		});
+		window.addEventListener('appinstalled', () => {
+			installBanner.hidden = true;
+			localStorage.setItem('installBannerNever', 'true');
+		});
+
+		if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+			installBanner.hidden = true;
+		}
 	</script>
 </body>
 </html>
