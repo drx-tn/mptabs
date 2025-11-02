@@ -15,12 +15,13 @@ body {
 }
 .container {
     max-width: 1000px;
+    display: inline-block;
+    min-width: 100%;
+    text-align: left;
     margin: auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow-x: auto; 
-    -webkit-overflow-scrolling: touch;
 }
 table {
     width: 100%;
