@@ -21,8 +21,10 @@
 		{ "tabs": "#tab18", "manif": "Cancer primitif de l'ovaire"},
 		{ "tabs": "#tab18", "manif": "Mésotheliome de la plèvre, péricarde, péritoine"},
 		{ "tabs": "#tab18,#tab85", "manif": "Cancer du Larynx"},
+		{ "tabs": "#tab45", "manif": "Cancer de la prostate"},
+		{ "tabs": "#tab23", "manif": "Cancer du rein"},
 		{ "tabs": "#tab31", "manif": "Syndrome myéloprolifratif"},
-		{ "tabs": "#tab31,#tab76", "manif": "Leucémie"},
+		{ "tabs": "#tab28,#tab31,#tab76", "manif": "Leucémie"},
 		{ "tabs": "#tab33,#tab37", "manif": "Tumeurs bénignes ou malignes de la vessie"},
 		{ "tabs": "#tab70", "manif": "Carcinome Hepato Cellulaire"}
 	]},
@@ -66,6 +68,8 @@
 		{ "tabs": "#tab3,#tab33", "manif": "Hémolyse, méthémoglobinémie"},
 		{ "tabs": "#tab3,#tab76", "manif": "Troubles de l’hémostase, Syndrome hémorragique"},
 		{ "tabs": "#tab31", "manif": "Leuconeutropénie"},
+		{ "tabs": "#tab45", "manif": "Lymphome malin non hodgkinien"},
+		{ "tabs": "#tab45", "manif": "Myélome multiple"},
 		{ "tabs": "#tab31", "manif": "Hypercytoses d’origine myélodysplasique"},
 		{ "tabs": "#tab31,#tab76", "manif": "Leucopénie"},
 		{ "tabs": "#tab31,#tab76", "manif": "Thrombopénie"},
@@ -74,7 +78,7 @@
 	]},
 	{ "group": "Maladies auto-immunes", "items": [
 		{ "tabs": "#tab17", "manif": "Lupus érythémateux systémique"},
-		{ "tabs": "#tab40", "manif": "Sclérodermie systémique"}
+		{ "tabs": "#tab40,#tab23", "manif": "Sclérodermie systémique"}
 	]},
 	{ "group": "Maladies Infectieuses", "items": [
 		{ "tabs": "#tab17,#tab63", "manif": "Infection aux bacilles tuberculeux, tuberculose extra-thoracique, TBC ou autre mycobactériose, aspergillose, suppuration broncho-pulmonaire subaigüe ou chronique"},
@@ -131,7 +135,7 @@
 		{ "tabs": "#tab77", "manif": "Photo-traumatisme"}
 	]},
 	{ "group": "Pneumologie", "items": [
-		{ "tabs": "#tab3", "manif": "Dyspnée aigue"},
+		{ "tabs": "#tab3,#tab17", "manif": "Dyspnée aigue"},
 		{ "tabs": "#tab4,#tab6,#tab7,#tab19,#tab25,#tab28,#tab29,#tab33,#tab34,#tab41,#tab42,#tab43,#tab44bis,#tab47,#tab52,#tab53,#tab54,#tab56,#tab57,#tab58", "manif": "Asthme"},
 		{ "tabs": "#tab4,#tab6,#tab7,#tab13,#tab33,#tab34,#tab42,#tab43,#tab45,#tab47,#tab52,#tab53,#tab54,#tab56,#tab57,#tab58,#tab72", "manif": "Dyspnée asthmatiforme"},
 		{ "tabs": "#tab4,#tab43,#tab52,#tab53,#tab56,#tab57,#tab58", "manif": "Insuffisance respiratoire obstructive"},
@@ -145,7 +149,7 @@
 		{ "tabs": "#tab18", "manif": "Pleurésie"},
 		{ "tabs": "#tab18", "manif": "Epaississement pleuraux, plaques pleurales"},
 		{ "tabs": "#tab18", "manif": "Manifestations respiratoires chroniques"},
-		{ "tabs": "#tab42,#tab44,#tab49,#tab54,#tab56,#tab57", "manif": "Pneumopathie d'hypersensibilité"},
+		{ "tabs": "#tab42,#tab44,#tab49,#tab54,#tab56,#tab57,#tab58", "manif": "Pneumopathie d'hypersensibilité"},
 		{ "tabs": "#tab67,#tab75", "manif": "Pneumonie, bronchopneumonie"}
 	]},
 	{ "group": "Psychiatrie", "items": [
@@ -185,6 +189,7 @@
 		{ "tabs": "#tab3,#tab21,#tab22,#tab23,#tab24,#tab32", "manif": "Accidents nerveux aigus (myoclonies, crises épileptiforme, accès confusionnels)"},
 		{ "tabs": "#tab3,#tab22,#tab23,#tab26,#tab27", "manif": "Polynévrite ou névrite"},
 		{ "tabs": "#tab8", "manif": "Syndrome Parkinsonien"},
+		{ "tabs": "#tab45", "manif": "Maladie de Parkinson"},
 		{ "tabs": "#tab20", "manif": "Amnésie"},
 		{ "tabs": "#tab20,#tab23,#tab24,#tab33", "manif": "Troubles neurologiques à type de somnolence, narcose, coma"},
 		{ "tabs": "#tab20,#tab24,#tab26,#tab45", "manif": "Troubles nerveux : céphalées, vertiges, confusion mentale avec myosis. Tremblement des extrémités, ROT vifs, paresthésies faciales et péribuccales, crises convulsives généralisées"},
