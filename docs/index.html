@@ -10,22 +10,15 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
 </head>
 <body>
-<div uk-sticky="top">
+	<div uk-sticky="top">
 		<div id="install-banner" class="uk-alert-primary uk-padding-small uk-margin-remove" uk-alert hidden>
-			<div class="uk-flex uk-flex-middle uk-flex-center uk-text-center">
-				<!-- Icône -->
-				<div class="uk-margin-right">
-					<span uk-icon="icon: download; ratio: 1.5"></span>
-				</div>
-
-				<!-- Texte -->
-				<div class="uk-width-expand">
-					<span class="uk-text-bold uk-visible@s">MPTabs est installable !</span>
+			<div class="uk-grid-small uk-flex-middle" uk-grid>
+				<div class="uk-width-auto"><span uk-icon="icon: download; ratio: 1.5"></span></div>
+				<div class="uk-width-expand uk-text-center uk-text-left@s">
+					<span class="uk-text-bold">MPTabs est installable !</span>
 					<span> Installez-la pour un accès rapide et hors ligne.</span>
 				</div>
-
-				<!-- Boutons -->
-				<div class="uk-margin-left uk-flex-nowrap">
+				<div class="uk-width-1-1 uk-width-auto@s uk-text-center">
 					<button id="install-button" class="uk-button uk-button-primary uk-button-small">Installer</button>
 					<a class="uk-button uk-button-default uk-button-small" href="#close-banner-modal" uk-toggle>Plus tard</a>
 				</div>
