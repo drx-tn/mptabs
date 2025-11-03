@@ -1,125 +1,85 @@
-self.addEventListener('fetch', function(event) {
+const CACHE_NAME = 'mptabs-cache-v031125';
+const ASSETS_TO_CACHE = [
+  '/',
+  '/mptabs/index.html',
+  '/mptabs/mptabs.png',
+  '/mptabs/profile.png',
+  '/mptabs/inc/style.css',
+  '/mptabs/inc/data.json',
+  '/mptabs/inc/tab.html', // Cache only once without query params
+];
+// INSTALL: Pre-cache static assets
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(ASSETS_TO_CACHE))
+      .catch(err => {
+        console.error('Service Worker install failed:', err);
+      })
+  );
+  self.skipWaiting();
+});
+// ACTIVATE: Clean up old caches
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(k => k !== CACHE_NAME)
+          .map(k => caches.delete(k))
+      )
+    )
+  );
+  self.clients.claim();
+});
+// FETCH: Handle requests with smart caching
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  // Serve cached /mptabs/inc/tab.html for any ?i= query param variants
+  if (url.pathname === '/mptabs/inc/tab.html') {
+    event.respondWith(
+      caches.match('/mptabs/inc/tab.html')
+        .then(cachedResponse => {
+          if (cachedResponse) return cachedResponse;
+          // Fallback to network if not cached
+          return fetch(event.request).then(networkResponse => {
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+              return networkResponse;
+            }
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put('/mptabs/inc/tab.html', responseClone);
+            });
+            return networkResponse;
+          });
+        }).catch(() => {
+          // Optional: offline fallback page or response here
+          return caches.match('/mptabs/index.html');
+        })
+    );
+    return;
+  }
+  if (event.request.method !== 'GET') return;
   event.respondWith(
     caches.match(event.request)
-    .then((response)=>{
-      if(response){
-        return response;
-      }
-      else{
+      .then(resp => {
+        if (resp) return resp;
+
         return fetch(event.request)
-        .then((res)=>{
-          return caches.open('mptabs-cache-v1-011125')
-          .then((cache)=>{
-            cache.put(event.request.url,res.clone());
-            return res;
+          .then(networkResp => {
+            if (!networkResp || networkResp.status !== 200 || networkResp.type !== 'basic') {
+              return networkResp;
+            }
+            const respClone = networkResp.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, respClone);
+            });
+            return networkResp;
           })
-        })
-      }
-    })
-    .catch(()=>{})
-  )
-});
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches
-      .open("mptabs-cache-v1-011125")
-      .then((cache) =>
-        cache.addAll([
-          "/",
-          "/mptabs/index.html",
-          "/mptabs/mptabs.png",
-          "/mptabs/profile.png",
-          "/mptabs/inc/style.css",
-          "/mptabs/inc/data.json",
-          "/mptabs/inc/tab.html",
-          "/mptabs/inc/tab.html?i=0",
-          "/mptabs/inc/tab.html?i=1",
-          "/mptabs/inc/tab.html?i=2",
-          "/mptabs/inc/tab.html?i=3",
-          "/mptabs/inc/tab.html?i=4",
-          "/mptabs/inc/tab.html?i=5",
-          "/mptabs/inc/tab.html?i=6",
-          "/mptabs/inc/tab.html?i=7",
-          "/mptabs/inc/tab.html?i=8",
-          "/mptabs/inc/tab.html?i=9",
-          "/mptabs/inc/tab.html?i=10",
-          "/mptabs/inc/tab.html?i=11",
-          "/mptabs/inc/tab.html?i=12",
-          "/mptabs/inc/tab.html?i=13",
-          "/mptabs/inc/tab.html?i=14",
-          "/mptabs/inc/tab.html?i=15",
-          "/mptabs/inc/tab.html?i=16",
-          "/mptabs/inc/tab.html?i=17",
-          "/mptabs/inc/tab.html?i=18",
-          "/mptabs/inc/tab.html?i=19",
-          "/mptabs/inc/tab.html?i=20",
-          "/mptabs/inc/tab.html?i=21",
-          "/mptabs/inc/tab.html?i=22",
-          "/mptabs/inc/tab.html?i=23",
-          "/mptabs/inc/tab.html?i=24",
-          "/mptabs/inc/tab.html?i=25",
-          "/mptabs/inc/tab.html?i=26",
-          "/mptabs/inc/tab.html?i=27",
-          "/mptabs/inc/tab.html?i=28",
-          "/mptabs/inc/tab.html?i=29",
-          "/mptabs/inc/tab.html?i=30",
-          "/mptabs/inc/tab.html?i=31",
-          "/mptabs/inc/tab.html?i=32",
-          "/mptabs/inc/tab.html?i=33",
-          "/mptabs/inc/tab.html?i=34",
-          "/mptabs/inc/tab.html?i=35",
-          "/mptabs/inc/tab.html?i=36",
-          "/mptabs/inc/tab.html?i=37",
-          "/mptabs/inc/tab.html?i=38",
-          "/mptabs/inc/tab.html?i=39",
-          "/mptabs/inc/tab.html?i=40",
-          "/mptabs/inc/tab.html?i=41",
-          "/mptabs/inc/tab.html?i=42",
-          "/mptabs/inc/tab.html?i=43",
-          "/mptabs/inc/tab.html?i=44",
-          "/mptabs/inc/tab.html?i=45",
-          "/mptabs/inc/tab.html?i=46",
-          "/mptabs/inc/tab.html?i=47",
-          "/mptabs/inc/tab.html?i=48",
-          "/mptabs/inc/tab.html?i=49",
-          "/mptabs/inc/tab.html?i=50",
-          "/mptabs/inc/tab.html?i=51",
-          "/mptabs/inc/tab.html?i=52",
-          "/mptabs/inc/tab.html?i=53",
-          "/mptabs/inc/tab.html?i=54",
-          "/mptabs/inc/tab.html?i=55",
-          "/mptabs/inc/tab.html?i=56",
-          "/mptabs/inc/tab.html?i=57",
-          "/mptabs/inc/tab.html?i=58",
-          "/mptabs/inc/tab.html?i=59",
-          "/mptabs/inc/tab.html?i=60",
-          "/mptabs/inc/tab.html?i=61",
-          "/mptabs/inc/tab.html?i=62",
-          "/mptabs/inc/tab.html?i=63",
-          "/mptabs/inc/tab.html?i=64",
-          "/mptabs/inc/tab.html?i=65",
-          "/mptabs/inc/tab.html?i=66",
-          "/mptabs/inc/tab.html?i=67",
-          "/mptabs/inc/tab.html?i=68",
-          "/mptabs/inc/tab.html?i=69",
-          "/mptabs/inc/tab.html?i=70",
-          "/mptabs/inc/tab.html?i=71",
-          "/mptabs/inc/tab.html?i=72",
-          "/mptabs/inc/tab.html?i=73",
-          "/mptabs/inc/tab.html?i=74",
-          "/mptabs/inc/tab.html?i=75",
-          "/mptabs/inc/tab.html?i=76",
-          "/mptabs/inc/tab.html?i=77",
-          "/mptabs/inc/tab.html?i=78",
-          "/mptabs/inc/tab.html?i=79",
-          "/mptabs/inc/tab.html?i=80",
-          "/mptabs/inc/tab.html?i=81",
-          "/mptabs/inc/tab.html?i=82",
-          "/mptabs/inc/tab.html?i=83",
-          "/mptabs/inc/tab.html?i=84",
-          "/mptabs/inc/tab.html?i=85",
-          "/mptabs/inc/tab.html?i=86"
-        ]),
-      ),
+          .catch(() => {
+            if (event.request.destination === 'document') {
+              return caches.match('/mptabs/index.html');
+            }
+          });
+      })
   );
 });
