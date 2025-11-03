@@ -15,7 +15,7 @@
 window.addEventListener('load', () => {
     params = new URLSearchParams(document.location.search);
     i = params.get("i");
-    if (i) {
+    if (i!==null) {
         fetch('data.json')
             .then(response => {
                 if (!response.ok) { throw new Error('Erreur réseau? (' + response.statusText)+')'; }
